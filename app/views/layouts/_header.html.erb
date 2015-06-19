@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/explorer.css" rel="stylesheet" media="screen">
+	
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
+	
+	<script type="text/javascript" src="/assets/javascript.js"></script>
+	<!-- <script type="text/javascript" src="/assets/javascriptAjaxCall.js"></script> -->
+	<script type="text/javascript" src="/assets/javascript1.js"></script>
+
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/search.js"></script>
+
+	<link href='/assets/strength.css' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="/assets/strength.js"></script>
+
+	<noscript style="color:red">javascript not enabled</noscript>
+</head>
+
+<header class="col-lg-12 no-padding pos">
+		<div class="first-header" id="first-header">
+			<nav class="navbar navbar-default blue-shadow" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<a class="brand" href="#"><img src="" style="max-height:50px"></a>
+						<button class="navbar-toggle" data-toggle="collapse" data-target="#example-nav-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+
+					<div class="collapse navbar-collapse" id="example-nav-collapse">
+					<% if current_user %>	
+						<ul class="nav navbar-nav navbar-right">
+							<li class="">
+								<!--<a href="#" class="first-header-nav">Salman</a>-->
+								<%= link_to current_user.firstname, class: "first-header-nav" %>
+							</li>
+							<li class="">
+								<!--<a id="myCollection" href="#" class="first-header-nav">My collection</a>-->
+								<%= link_to 'My Collection', 'favouritecollection', id: "myCollection", class: "first-header-nav"  %>
+							</li>
+							<li class="dropdown">
+
+					            <a href="#" class=" dropdown-toggle" data-toggle="dropdown">
+					             <span class="glyphicon glyphicon-user navbar-icons"></span>
+					               Account 
+					               <b class="caret"></b>
+					            </a>
+					            <ul class="dropdown-menu">
+					               <!--<li><a href="users/edit_profile">Profile</a></li>-->
+
+					               <% if session[:user_type] == "scholar" %>
+					               		<li><%= link_to "Messages", conversation_path %></li>
+					               <% end %>
+					               <li><%= link_to "Profile", profile_path(:user_id => session[:user_id]) %></li>
+					               <li><%= link_to "Logout", logout_path %></li>
+					            </ul>
+				         	</li>
+						</ul>
+					<% else %>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="">
+								<!--<a href="#" class="first-header-nav">Log In</a>-->
+								<%= link_to "Log In", login_path, class: "first-header-nav" %>
+							</li>
+							<li class="">
+								<!--<a id="myCollection" href="#" class="first-header-nav">Sign Up</a>-->
+								<%= link_to "Sign Up", signup_path, id: "myCollection" %>
+							</li>
+							
+						</ul>
+					<% end %>	
+					</div>
+				</div>
+			</nav>
+		</div>
+		
+		<div class="second-header">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button class="navbar-toggle" data-toggle="collapse" data-target="#example-nav-collapse1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+
+					<div class="collapse navbar-collapse" id="example-nav-collapse1">
+						<ul class="nav navbar-nav navbar-right">
+							<li class=""><a href="home" class="active second-header-nav"><span class="glyphicon glyphicon-home navbar-icons"></span>Home</a></li>
+                            <li class=""><a href="categorized" class="second-header-nav">Categorized Ahadith</a></li>
+							<li class=""><a href="unCategorized" class="second-header-nav">Un-Categorized Ahadith</a></li>
+							<li><a href="#" class="second-header-nav" style="margin-right:0px;padding-right: 11px !important;">Contact us</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>

@@ -1,0 +1,72 @@
+#header
+{
+	height: 110px;
+	border: 1px solid;
+}
+#main_div
+{
+	
+	border-color: gray;
+	box-shadow: black;
+	border-bottom: 1px solid;
+	margin-left: 4px;
+	margin-right: 4px;
+	border-color: lightgray;
+	box-shadow: 0 4px 2px -2px gray;
+
+
+
+	/* temporary */
+
+	
+	height: 430px;
+
+}
+#signup
+{
+	height: 70px;
+	padding-top: 41px;
+	width: 90%;
+	border-bottom: 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+	border-color: lightgray;
+}
+#signup_fields
+{
+	
+	width: 28%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 23px;
+	
+}
+
+.signup_fields_part1
+{
+	float: left;
+}
+.signup_fields_part2
+{
+	float: right;
+}
+
+.password_div
+{
+
+	padding-top: 70px;
+}
+#signup_fields input
+{
+	width: 100%;
+}
+#signup_fields button
+{
+	width: 100%;
+}
+#my_button
+{
+	margin-bottom:100px;
+	width:100%;
+	background:skyblue;	
+}

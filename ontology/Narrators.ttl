@@ -1,0 +1,2625 @@
+@prefix : <http://protege.org/ontologies/Hadith.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ontologies: <http://protege.org/ontologies/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+<http://protege.org/ontologies/Hadith.owl> a owl:Ontology .
+
+rdfs:Literal a rdfs:Datatype .
+
+xsd:integer a rdfs:Datatype .
+
+:AuthorOf a owl:ObjectProperty ;
+	rdfs:domain :Author ;
+	rdfs:range :Book ;
+	owl:inverseOf :hasAuthor .
+
+:BedaaHadiths a owl:ObjectProperty ;
+	rdfs:range :Hadith ;
+	rdfs:domain :Narrator ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+
+:BrotherOf a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:ChapterOf a owl:ObjectProperty ;
+	rdfs:range :Book ;
+	rdfs:domain :Chapter ;
+	owl:inverseOf :hasChapter .
+
+:ContainerOf a owl:ObjectProperty ;
+	rdfs:domain :Book ;
+	rdfs:range :Hadith ;
+	owl:inverseOf :hasContainer .
+
+:CousinOf a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:DaughterHusbandOf a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:FatherOf a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:GrandFatherOf a owl:ObjectProperty ;
+	rdfs:domain :Person ;
+	rdfs:range :Person ;
+	owl:inverseOf :hasGrandFather .
+
+:GrandSonOf a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:HadithOf a owl:ObjectProperty ;
+	rdfs:range :Chapter ;
+	rdfs:domain :Hadith ;
+	owl:inverseOf :hasHadith .
+
+:HeardFrom a owl:ObjectProperty ;
+	rdfs:range :Narrator ;
+	rdfs:domain :Narrator ;
+	owl:inverseOf :TransferTo .
+
+:IkhtelatHadiths a owl:ObjectProperty ;
+	rdfs:range :Hadith ;
+	rdfs:domain :Narrator .
+
+:IrsalAbout a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:MawlaOf a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator ;
+	owl:inverseOf :hasMawla .
+
+:MotherOf a owl:ObjectProperty ;
+	rdfs:range :Narrator ;
+	rdfs:domain :Narrator .
+
+:NarratorOf a owl:ObjectProperty ;
+	rdfs:range :Hadith ;
+	rdfs:domain :Narrator ;
+	owl:inverseOf :hasNarrator .
+
+:NephewOf a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:TransferTo a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:UncleOf a owl:ObjectProperty ;
+	rdfs:range :Narrator ;
+	rdfs:domain :Narrator .
+
+:WahemHadiths a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+
+:hasAuthor a owl:ObjectProperty ;
+	rdfs:range :Author ;
+	rdfs:domain :Book .
+
+:hasBrother a owl:ObjectProperty ;
+	owl:inverseOf :BrotherOf ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:hasChapter a owl:ObjectProperty ;
+	rdfs:domain :Book ;
+	rdfs:range :Chapter .
+
+:hasContainer a owl:ObjectProperty ;
+	rdfs:range :Book ;
+	rdfs:domain :Hadith .
+
+:hasCousin a owl:ObjectProperty ;
+	owl:inverseOf :CousinOf ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:hasDaughterHusband a owl:ObjectProperty ;
+	owl:inverseOf :DaughterHusbandOf ;
+	rdfs:range :Narrator ;
+	rdfs:domain :Narrator .
+
+:hasFather a owl:ObjectProperty ;
+	owl:inverseOf :FatherOf ;
+	rdfs:range :Narrator ;
+	rdfs:domain :Narrator .
+
+:hasGrandFather a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:hasGrandSon a owl:ObjectProperty ;
+	owl:inverseOf :GrandSonOf ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator .
+
+:hasHadith a owl:ObjectProperty ;
+	rdfs:domain :Chapter ;
+	rdfs:range :Hadith .
+
+:hasMawla a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+
+:hasMother a owl:ObjectProperty ;
+	owl:inverseOf :MotherOf ;
+	rdfs:range :Narrator ;
+	rdfs:domain :Narrator .
+
+:hasNarrator a owl:ObjectProperty ;
+	rdfs:domain :Hadith ;
+	rdfs:range :Narrator .
+
+:hasNephew a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator ;
+	owl:inverseOf :NephewOf .
+
+:hasUncle a owl:ObjectProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range :Narrator ;
+	owl:inverseOf :UncleOf .
+
+:notHeardFrom a owl:ObjectProperty ;
+	rdfs:range :Narrator ;
+	rdfs:domain :Narrator .
+
+:hasCategory a owl:ObjectProperty ;
+	rdfs:range :Category ;
+	rdfs:domain :Hadith ;
+	owl:inverseOf :CategoryOf .
+
+:CategoryOf a owl:ObjectProperty ;
+	rdfs:domain :Category ;
+	rdfs:range :Hadith ;
+	owl:inverseOf :hasCategory .
+
+:AttributedToGrandfather a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:BirthYear a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range xsd:Literal .
+
+:Content a owl:DatatypeProperty ;
+	rdfs:domain :Hadith ;
+	rdfs:range rdfs:Literal .
+
+:DeathYear a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range xsd:Literal ;
+	rdfs:subPropertyOf owl:topDataProperty .
+
+:DenotedBy a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:FatherName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:FatherNickName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:FifthName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:FifthNickName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:FirstName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:FourthName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:FourthNickName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:Gender a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:GrandFatherName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal ;
+	rdfs:subPropertyOf owl:topDataProperty .
+
+:GrandFatherNickName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal ;
+	rdfs:subPropertyOf owl:topDataProperty .
+
+:HId a owl:DatatypeProperty ;
+	rdfs:domain :Hadith ;
+	rdfs:range xsd:Literal .
+
+:ChId a owl:DatatypeProperty ;
+	rdfs:domain :Chapter ;
+	rdfs:range xsd:Literal .
+
+:PId a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range xsd:Literal .
+
+:CId a owl:DatatypeProperty ;
+	rdfs:domain :Category ;
+	rdfs:range xsd:Literal .
+
+:Konia a owl:DatatypeProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range rdfs:Literal .
+
+:LiveIn a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:Luqab a owl:DatatypeProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range rdfs:Literal .
+
+:PName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:CName a owl:DatatypeProperty ;
+	rdfs:domain :Category ;
+	rdfs:range rdfs:Literal .
+
+:Nasab a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:NazeelOf a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:NickName a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:NoOfPages a owl:DatatypeProperty ;
+	rdfs:domain :Book ;
+	rdfs:range xsd:integer .
+
+:OriginallyFrom a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:Rotba a owl:DatatypeProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range xsd:integer ;
+	rdfs:subPropertyOf owl:topDataProperty .
+
+:Tabaqa a owl:DatatypeProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range xsd:integer .
+
+:Tadlees a owl:DatatypeProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range xsd:integer .
+
+:Title a owl:DatatypeProperty ;
+	rdfs:domain :Book ;
+	rdfs:range rdfs:Literal .
+
+:Topic a owl:DatatypeProperty ;
+	rdfs:domain :Hadith ;
+	rdfs:range rdfs:Literal .
+
+:Who a owl:DatatypeProperty ;
+	rdfs:domain :Person ;
+	rdfs:range rdfs:Literal .
+
+:YearOfPublication a owl:DatatypeProperty ;
+	rdfs:domain :Book ;
+	rdfs:range xsd:integer .
+
+:hasBedaa a owl:DatatypeProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range xsd:integer ;
+	rdfs:subPropertyOf owl:topDataProperty .
+
+:hasIkthelat a owl:DatatypeProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range xsd:integer ;
+	rdfs:subPropertyOf owl:topDataProperty .
+
+:hasIrsal a owl:DatatypeProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range xsd:integer .
+
+:hasWahem a owl:DatatypeProperty ;
+	rdfs:domain :Narrator ;
+	rdfs:range xsd:integer .
+
+:Author a owl:Class ;
+	rdfs:subClassOf :Person .
+
+:Book a owl:Class .
+
+:Category a owl:Class .
+
+:Chapter a owl:Class .
+
+:Hadith a owl:Class .
+
+:Narrator a owl:Class ;
+	rdfs:subClassOf :Person .
+
+:Person a owl:Class .
+
+:Sahih-Bukhari a owl:NamedIndividual , :Book ;
+	:Title "Sahih-Bukhari"^^xsd:Literal ;
+	:hasChapter :Ch1 , :Ch2 , :Ch3 , :Ch4 , :Ch5 , :Ch6 , :Ch7 , :Ch8 , :Ch9 , :Ch10 , :Ch11 , :Ch12 , :Ch13 , :Ch14 , :Ch15 , :Ch16 , :Ch17 , :Ch18 , :Ch19 , :Ch20 , :Ch21 , :Ch22 , :Ch23 , :Ch24 , :Ch25 , :Ch26 , :Ch27 , :Ch28 , :Ch29 , :Ch30 , :Ch31 , :Ch32 , :Ch33 , :Ch34 , :Ch35 , :Ch36 , :Ch37 , :Ch38 , :Ch39 , :Ch40 , :Ch41 , :Ch42 , :Ch43 , :Ch44 , :Ch45 , :Ch46 , :Ch47 , :Ch48 , :Ch49 , :Ch50 , :Ch51 , :Ch52 , :Ch53 , :Ch54 , :Ch55 , :Ch56 , :Ch57 , :Ch58 , :Ch59 , :Ch60 , :Ch61 , :Ch62 , :Ch63 , :Ch64 , :Ch65 , :Ch66 , :Ch67 , :Ch68 , :Ch69 , :Ch70 , :Ch71 , :Ch72 , :Ch73 , :Ch74 , :Ch75 , :Ch76 , :Ch77 , :Ch78 , :Ch79 , :Ch80 , :Ch81 , :Ch82 , :Ch83 , :Ch84 , :Ch85 , :Ch86 , :Ch87 , :Ch88 , :Ch89 , :Ch90 , :Ch91 , :Ch92 , :Ch93 , :Ch94 , :Ch95 , :Ch96 , :Ch97 , :Ch98 .
+
+:Ch1 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch1"^^xsd:Literal ;
+	:CName "Revelation"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch2 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch2"^^xsd:Literal ;
+	:CName "Belief"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch3 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch3"^^xsd:Literal ;
+	:CName "Knowledge"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch4 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch4"^^xsd:Literal ;
+	:CName "Ablutions (Wudu)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch5 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch5"^^xsd:Literal ;
+	:CName "Bathing (Ghusl)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch6 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch6"^^xsd:Literal ;
+	:CName "Menstrual Periods"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch7 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch7"^^xsd:Literal ;
+	:CName "Rubbing hands and feet with dust (Tayammum)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch8 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch8"^^xsd:Literal ;
+	:CName "Prayers (Salat)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch9 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch9"^^xsd:Literal ;
+	:CName "Times of the Prayers"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch10 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch10"^^xsd:Literal ;
+	:CName "Call to Prayers (Adhaan)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch11 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch11"^^xsd:Literal ;
+	:CName "Friday Prayer"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch12 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch12"^^xsd:Literal ;
+	:CName "Fear Prayer"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch13 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch13"^^xsd:Literal ;
+	:CName "The Two Festivals (Eids)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch14 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch14"^^xsd:Literal ;
+	:CName "Witr Prayer"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch15 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch15"^^xsd:Literal ;
+	:CName "Invoking Allah for Rain (Istisqaa)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch16 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch16"^^xsd:Literal ;
+	:CName "Eclipses"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch17 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch17"^^xsd:Literal ;
+	:CName "Prostration During Recital of Quran"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch18 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch18"^^xsd:Literal ;
+	:CName "Shortening the Prayers (At-Taqseer)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch19 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch19"^^xsd:Literal ;
+	:CName "Prayer at Night (Tahajjud)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch20 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch20"^^xsd:Literal ;
+	:CName "Virtues of Prayer at Masjid Makkah and Madinah"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch21 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch21"^^xsd:Literal ;
+	:CName "Actions while Praying"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch22 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch22"^^xsd:Literal ;
+	:CName "Forgetfulness in Prayer"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch23 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch23"^^xsd:Literal ;
+	:CName "Funerals (Al-Janaaiz)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch24 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch24"^^xsd:Literal ;
+	:CName "Obligatory Charity Tax (Zakat)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch25 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch25"^^xsd:Literal ;
+	:CName "Hajj (Pilgrimage)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch26 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch26"^^xsd:Literal ;
+	:CName "`Umrah (Minor pilgrimage)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch27 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch27"^^xsd:Literal ;
+	:CName "Pilgrims Prevented from Completing the Pilgrimage"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch28 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch28"^^xsd:Literal ;
+	:CName "Penalty of Hunting while on Pilgrimage"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch29 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch29"^^xsd:Literal ;
+	:CName "Virtues of Madinah"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch30 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch30"^^xsd:Literal ;
+	:CName "Fasting"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch31 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch31"^^xsd:Literal ;
+	:CName "Praying at Night in Ramadaan (Taraweeh)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch32 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch32"^^xsd:Literal ;
+	:CName "Virtues of the Night of Qadr"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch33 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch33"^^xsd:Literal ;
+	:CName "Retiring to a Mosque for Remembrance of Allah (Itikaf)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch34 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch34"^^xsd:Literal ;
+	:CName "Sales and Trade"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch35 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch35"^^xsd:Literal ;
+	:CName "Sales in which a Price is paid for Goods to be Delivered Later (As-Salam)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch36 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch36"^^xsd:Literal ;
+	:CName "Shufa"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch37 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch37"^^xsd:Literal ;
+	:CName "Hiring"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch38 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch38"^^xsd:Literal ;
+	:CName "Transferance of a Debt from One Person to Another (Al-Hawaala)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch39 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch39"^^xsd:Literal ;
+	:CName "Kafalah"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch40 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch40"^^xsd:Literal ;
+	:CName "Representation; Authorization; Business by Proxy"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch41 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch41"^^xsd:Literal ;
+	:CName "Agriculture"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch42 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch42"^^xsd:Literal ;
+	:CName "Distribution of Water"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch43 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch43"^^xsd:Literal ;
+	:CName "Loans; Payment of Loans; Freezing of Property; Bankruptcy"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch44 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch44"^^xsd:Literal ;
+	:CName "Khusoomaat"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch45 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch45"^^xsd:Literal ;
+	:CName "Lost Things Picked up by Someone (Luqatah)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch46 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch46"^^xsd:Literal ;
+	:CName "Oppressions"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch47 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch47"^^xsd:Literal ;
+	:CName "Partnership"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch48 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch48"^^xsd:Literal ;
+	:CName "Mortgaging"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch49 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch49"^^xsd:Literal ;
+	:CName "Manumission of Slaves"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch50 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch50"^^xsd:Literal ;
+	:CName "Makaatib"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch51 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch51"^^xsd:Literal ;
+	:CName "Gifts"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch52 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch52"^^xsd:Literal ;
+	:CName "Witnesses"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch53 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch53"^^xsd:Literal ;
+	:CName "Peacemaking"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch54 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch54"^^xsd:Literal ;
+	:CName "Conditions"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch55 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch55"^^xsd:Literal ;
+	:CName "Wills and Testaments (Wasaayaa)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch56 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch56"^^xsd:Literal ;
+	:CName "Fighting for the Cause of Allah (Jihaad)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch57 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch57"^^xsd:Literal ;
+	:CName "One-fifth of Booty to the Cause of Allah (Khumus)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch58 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch58"^^xsd:Literal ;
+	:CName "Jizyah and Mawaadaah"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch59 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch59"^^xsd:Literal ;
+	:CName "Beginning of Creation"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch60 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch60"^^xsd:Literal ;
+	:CName "Prophets"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch61 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch61"^^xsd:Literal ;
+	:CName "Virtues and Merits of the Prophet (pbuh) and his Companions"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch62 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch62"^^xsd:Literal ;
+	:CName "Companions of the Prophet"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch63 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch63"^^xsd:Literal ;
+	:CName "Merits of the Helpers in Madinah (Ansaar)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch64 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch64"^^xsd:Literal ;
+	:CName "Military Expeditions led by the Prophet (pbuh) (Al-Maghaazi)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch65 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch65"^^xsd:Literal ;
+	:CName "Prophetic Commentary on the Quran (Tafseer of the Prophet (pbuh))"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch66 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch66"^^xsd:Literal ;
+	:CName "Virtues of the Quran"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch67 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch67"^^xsd:Literal ;
+	:CName "Wedlock; Marriage (Nikaah)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch68 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch68"^^xsd:Literal ;
+	:CName "Divorce"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch69 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch69"^^xsd:Literal ;
+	:CName "Supporting the Family"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch70 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch70"^^xsd:Literal ;
+	:CName "Food; Meals"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch71 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch71"^^xsd:Literal ;
+	:CName "Sacrifice on Occasion of Birth (`Aqiqa)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch72 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch72"^^xsd:Literal ;
+	:CName "Hunting; Slaughtering"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch73 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch73"^^xsd:Literal ;
+	:CName "Al-Adha Festival Sacrifice (Adaahi)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch74 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch74"^^xsd:Literal ;
+	:CName "Drinks"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch75 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch75"^^xsd:Literal ;
+	:CName "Patients"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch76 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch76"^^xsd:Literal ;
+	:CName "Medicine"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch77 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch77"^^xsd:Literal ;
+	:CName "Dress"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch78 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch78"^^xsd:Literal ;
+	:CName "Good Manners and Form (Al-Adab)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch79 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch79"^^xsd:Literal ;
+	:CName "Asking Permission"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch80 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch80"^^xsd:Literal ;
+	:CName "Invocations"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch81 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch81"^^xsd:Literal ;
+	:CName "To make the Heart Tender (Ar-Riqaq)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch82 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch82"^^xsd:Literal ;
+	:CName "Divine Will (Al-Qadar)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch83 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch83"^^xsd:Literal ;
+	:CName "Oaths and Vows"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch84 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch84"^^xsd:Literal ;
+	:CName "Expiation for Unfulfilled Oaths"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch85 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch85"^^xsd:Literal ;
+	:CName "Laws of Inheritance (Al-Faraaid)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch86 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch86"^^xsd:Literal ;
+	:CName "Limits and Punishments set by Allah (Hudood)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch87 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch87"^^xsd:Literal ;
+	:CName "Punishment of Disbelievers at War with Allah and His Apostle"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch88 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch88"^^xsd:Literal ;
+	:CName "Blood Money (Ad-Diyat)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch89 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch89"^^xsd:Literal ;
+	:CName "Dealing with Apostates"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch90 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch90"^^xsd:Literal ;
+	:CName "Saying Something under Compulsion (Ikraah)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch91 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch91"^^xsd:Literal ;
+	:CName "Tricks"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch92 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch92"^^xsd:Literal ;
+	:CName "Interpretation of Dreams"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch93 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch93"^^xsd:Literal ;
+	:CName "Afflictions and the End of the World"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch94 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch94"^^xsd:Literal ;
+	:CName "Judgments (Ahkaam)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch95 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch95"^^xsd:Literal ;
+	:CName "Wishes"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch96 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch96"^^xsd:Literal ;
+	:CName "Accepting Information Given by a Truthful Person"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch97 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch97"^^xsd:Literal ;
+	:CName "Holding Fast to the Quran and Sunnah"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:Ch98 a owl:NamedIndividual , :Chapter ;
+	:CId "Ch98"^^xsd:Literal ;
+	:CName "Oneness; Uniqueness of Allah (Tawheed)"^^xsd:Literal ;
+	:ChapterOf :Sahih-Bukhari .
+
+:H8 a owl:NamedIndividual , :Hadith ;
+	:HId "H8"^^xsd:Literal ;
+	:Content """Allah's Apostle said: Islam is based on (the following) five 
+     (principles):
+
+
+     1. To testify that none has the right to be worshipped but Allah and 
+     Muhammad is Allah's Apostle.
+
+
+     2. To offer the (compulsory congregational) prayers dutifully and 
+     perfectly.
+
+
+     3. To pay Zakat (i.e. obligatory charity) .
+
+
+     4. To perform Hajj. (i.e. Pilgrimage to Mecca)
+
+
+     5. To observe fast during the month of Ramadan."""^^xsd:Literal ;
+	:Topic "Belief"^^xsd:Literal ;
+	:hasNarrator :P20340 , :P11243 , :P11709 , :P18 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H9 a owl:NamedIndividual , :Hadith ;
+	:HId "H9"^^xsd:Literal ;
+	:Content """The Prophet said, \"Faith (Belief) consists of more than sixty branches
+     (i.e. parts). And Haya (This term \"Haya\" covers a large number of 
+     concepts which are to be taken together; amongst them are self 
+     respect, modesty, bashfulness, and scruple, etc.) is a part of 
+     faith.\""""^^xsd:Literal ;
+	:Topic "Belief"^^xsd:Literal ;
+	:hasNarrator :P30351 , :P20443 , :P20160 , :P11183 , :P11161 , :P13 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H10 a owl:NamedIndividual , :Hadith ;
+	:HId "H10"^^xsd:Literal ;
+	:Content """The Prophet said, \"A Muslim is the one who avoids harming Muslims with
+     his tongue and hands. And a Muhajir (emigrant) is the one who gives up
+     (abandons) all what Allah has forbidden.\""""^^xsd:Literal ;
+	:Topic "Belief"^^xsd:Literal ;
+	:hasNarrator :P20404 , :P20020 , :P11636 , :P20208 , :P11052 , :P29 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H11 a owl:NamedIndividual , :Hadith ;
+	:HId "H11"^^xsd:Literal ;
+	:Content """Some people asked Allah's Apostle, \"Whose Islam is the best? i.e. (Who
+     is a very good Muslim)?\" He replied, \"One who avoids harming the 
+     Muslims with his tongue and hands.\""""^^xsd:Literal ;
+	:Topic "Belief"^^xsd:Literal ;
+	:hasNarrator :P30254 , :P20367 , :P11325 , :P11901 , :P41 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H12 a owl:NamedIndividual , :Hadith ;
+	:HId "H12"^^xsd:Literal ;
+	:Content """A man asked the Prophet , \"What sort of deeds or (what qualities of) 
+     Islam are good?\" The Prophet replied, 'To feed (the poor) and greet 
+     those whom you know and those whom you do not Know (See 
+     Hadith No. 27)."""^^xsd:Literal ;
+	:Topic "Belief"^^xsd:Literal ;
+	:hasNarrator :P30237 , :P20023 , :P20472 , :P11410 , :P29 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H13 a owl:NamedIndividual , :Hadith ;
+	:HId "H13"^^xsd:Literal ;
+	:Content """The Prophet said, \"None of you will have faith till he wishes for his 
+     (Muslim) brother what he likes for himself.\""""^^xsd:Literal ;
+	:Topic "Belief"^^xsd:Literal ;
+	:hasNarrator :P30175 , :P20031 , :P20020 , :P11019 , :P19 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H59 a owl:NamedIndividual , :Hadith ;
+	:HId "H59"^^xsd:Literal ;
+	:Content """While the Prophet was saying something in a gathering, a Bedouin came and asked him, \"When 
+would the Hour (Doomsday) take place?\" Allah's Apostle continued his talk, so some people said that 
+Allah's Apostle had heard the question, but did not like what that Bedouin had asked. Some of them 
+said that Allah's Apostle had not heard it. When the Prophet finished his speech, he said, \"Where is 
+the questioner, who inquired about the Hour (Doomsday)?\" The Bedouin said, \"I am here, O Allah's 
+Apostle .\" Then the Prophet said, \"When honesty is lost, then wait for the Hour (Doomsday).\" The 
+Bedouin said, \"How will that be lost?\" The Prophet said, \"When the power or authority comes in the 
+hands of unfit persons, then wait for the Hour (Doomsday.)\""""^^xsd:Literal ;
+	:Topic "Knowledge"^^xsd:Literal ;
+	:hasNarrator :P34207 , :P20169 , :P30308 , :P20178 , :P20169 , :P11229 , :P11020 , :P13 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H60 a owl:NamedIndividual , :Hadith ;
+	:HId "H60"^^xsd:Literal ;
+	:Content """Once the Prophet remained behind us in a journey. He joined us while we were performing ablution 
+for the prayer which was over-due. We were just passing wet hands over our feet (and not washing 
+them properly) so the Prophet addressed us in a loud voice and said twice or thrice: \"Save your heels 
+from the fire.\""""^^xsd:Literal ;
+	:Topic "Knowledge"^^xsd:Literal ;
+	:hasNarrator :P20283 , :P20469 , :P11419 , :P11264 , :P29 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H61 a owl:NamedIndividual , :Hadith ;
+	:HId "H61"^^xsd:Literal ;
+	:Content """Allah's Apostle said, \"Amongst the trees, there is a tree, the leaves of which do not fall and is like a 
+Muslim. Tell me the name of that tree.\" Everybody started thinking about the trees of the desert areas. 
+And I thought of the date-palm tree but felt shy to answer the others then asked, \"What is that tree, O 
+Allah's Apostle ?\" He replied, \"It is the date-palm tree.\""""^^xsd:Literal ;
+	:Topic "Knowledge"^^xsd:Literal ;
+	:hasNarrator :P30367 , :P20155 , :P11183 , :P18 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H62 a owl:NamedIndividual , :Hadith ;
+	:HId "H62"^^xsd:Literal ;
+	:Content """The Prophet said, \"Amongst the trees, there is a tree, the leaves of which do not fall and is like a 
+Muslim. Tell me the name of that tree.\" Everybody started thinking about the trees of the desert areas. 
+And I thought of the date-palm tree. The others then asked, \"Please inform us what is that tree, O 
+Allah's Apostle?\" He replied, \"It is the date-palm tree.\""""^^xsd:Literal ;
+	:Topic "Knowledge"^^xsd:Literal ;
+	:hasNarrator :P30463 , :P20160 , :P11183 , :P18 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H63 a owl:NamedIndividual , :Hadith ;
+	:HId "H63"^^xsd:Literal ;
+	:Content """While we were sitting with the Prophet in the mosque, a man came riding on a camel. He made his 
+camel kneel down in the mosque, tied its foreleg and then said: \"Who amongst you is Muhammad?\" 
+At that time the Prophet was sitting amongst us (his companions) leaning on his arm. We replied, 
+\"This white man reclining on his arm.\" The man then addressed him, \"O Son of `Abdul Muttalib.\" 
+The Prophet said, \"I am here to answer your questions.\" The man said to the Prophet, \"I want to ask 
+you something and will be hard in questioning. So do not get angry.\" The Prophet said, \"Ask whatever 
+you want.\" The man said, \"I ask you by your Lord, and the Lord of those who were before you, has 
+Allah sent you as an Apostle to all the mankind?\" The Prophet replied, \"By Allah, yes.\" The man 
+further said, \"I ask you by Allah. Has Allah ordered you to offer five prayers in a day and night (24 
+hours).? He replied, \"By Allah, Yes.\" The man further said, \"I ask you by Allah! Has Allah ordered 
+you to observe fasts during this month of the year (i.e. Ramadan)?\" He replied, \"By Allah, Yes.\" The 
+man further said, \"I ask you by Allah. Has Allah ordered you to take Zakat (obligatory charity) from 
+our rich people and distribute it amongst our poor people?\" The Prophet replied, \"By Allah, yes.\" 
+Thereupon that man said, \"I have believed in all that with which you have been sent, and I have been 
+sent by my people as a messenger, and I am Dimam bin Tha`laba from the brothers of Bani Sa`d bin 
+Bakr.\""""^^xsd:Literal ;
+	:Topic "Knowledge"^^xsd:Literal ;
+	:hasNarrator :P30355 , :P20023 , :P11168 , :P11858 , :P19 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H64 a owl:NamedIndividual , :Hadith ;
+	:HId "H64"^^xsd:Literal ;
+	:Content """Once Allah's Apostle gave a letter to a person and ordered him to go and deliver it to the Governor of 
+Bahrain. (He did so) and the Governor of Bahrain sent it to Chousroes, who read that letter and then 
+tore it to pieces. (The sub-narrator (Ibn Shihab) thinks that Ibn Al-Musaiyab said that Allah's Apostle 
+invoked Allah against them (saying), \"May Allah tear them into pieces, and disperse them all totally.)\""""^^xsd:Literal ;
+	:Topic "Knowledge"^^xsd:Literal ;
+	:hasNarrator :P30103 , :P20150 , :P11176 , :P11013 , :P11004 , :P17 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H135 a owl:NamedIndividual , :Hadith ;
+	:HId "H135"^^xsd:Literal ;
+	:Content """Allah's Apostle said, \"The prayer of a person who does Hadath (passes urine, stool or wind) is not 
+accepted till he performs the ablution.\" A person from Hadaramout asked Abu Huraira, \"What is 
+'Hadath'?\" Abu Huraira replied, \" 'Hadath' means the passing of wind.\""""^^xsd:Literal ;
+	:Topic "Ablutions (Wudu)"^^xsd:Literal ;
+	:hasNarrator :P30021 , :P20121 , :P20115 , :P11447 , :P13 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H136 a owl:NamedIndividual , :Hadith ;
+	:HId "H136"^^xsd:Literal ;
+	:Content """Once I went up the roof of the mosque, along with Abu Huraira. He perform ablution and said, \"I 
+heard the Prophet saying, \"On the Day of Resurrection, my followers will be called \"Al-Ghurr-ul- 
+Muhajjalun\" from the trace of ablution and whoever can increase the area of his radiance should do so 
+(i.e. by performing ablution regularly).' \""""^^xsd:Literal ;
+	:Topic "Ablutions (Wudu)"^^xsd:Literal ;
+	:hasNarrator :P30399 , :P20023 , :P20423 , :P11169 , :P11225 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H137 a owl:NamedIndividual , :Hadith ;
+	:HId "H137"^^xsd:Literal ;
+	:Content """My uncle asked Allah's Apostle about a person who imagined to have passed wind during the prayer. 
+Allah' Apostle replied: \"He should not leave his prayers unless he hears sound or smells something.\""""^^xsd:Literal ;
+	:Topic "Ablutions (Wudu)"^^xsd:Literal ;
+	:hasNarrator :P30026 , :P20005 , :P11013 , :P11002 , :P639 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H138 a owl:NamedIndividual , :Hadith ;
+	:HId "H138"^^xsd:Literal ;
+	:Content """Ibn `Abbas said, \"The Prophet slept till he snored and then prayed (or probably lay till his breath 
+sounds were heard and then got up and prayed).\" Ibn `Abbas added: \"I stayed overnight in the house 
+of my aunt, Maimuna, the Prophet slept for a part of the night, (See Fath-al-Bari page 249, Vol. 1), 
+and late in the night, he got up and performed ablution from a hanging water skin, a light (perfect) 
+ablution and stood up for the prayer. I, too, performed a similar ablution, then I went and stood on his 
+left. He drew me to his right and prayed as much as Allah wished, and again lay and slept till his 
+breath sounds were heard. Later on the Mu'adh-dhin (call maker for the prayer) came to him and 
+informed him that it was time for Prayer. The Prophet went with him for the prayer without 
+performing a new ablution.\" (Sufyan said to `Amr that some people said, \"The eyes of Allah's Apostle 
+sleep but his heart does not sleep.\" `Amr replied, \"I heard `Ubaid bin `Umar saying that the dreams of 
+Prophets were Divine Inspiration, and then he recited the verse: 'I (Abraham) see in a dream, (O my 
+son) that I offer you in sacrifice (to Allah).\" (37.102) (See Hadith No. 183)"""^^xsd:Literal ;
+	:Topic "Ablutions (Wudu)"^^xsd:Literal ;
+	:hasNarrator :P30026 , :P20005 , :P11081 , :P11211 , :P17 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H139 a owl:NamedIndividual , :Hadith ;
+	:HId "H139"^^xsd:Literal ;
+	:Content """Allah's Apostle proceeded from `Arafat till when he reached the mountain pass, he dismounted, 
+urinated and then performed ablution but not a perfect one. I said to him, (\"Is it the time for) the 
+prayer, O Allah's Apostle?\" He said, \"The (place of) prayer is ahead of you.\" He rode till when he 
+reached Al-Muzdalifa, he dismounted and performed ablution and a perfect one, The (call for) Iqama 
+was pronounced and he led the Maghrib prayer. Then everybody made his camel kneel down at its 
+place. Then the Iqama was pronounced for the `Isha' prayer which the Prophet led and no prayer was 
+offered in between the two . prayers (`Isha' and Maghrib)."""^^xsd:Literal ;
+	:Topic "Ablutions (Wudu)"^^xsd:Literal ;
+	:hasNarrator :P20164 , :P20001 , :P11106 , :P11211 , :P50 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H140 a owl:NamedIndividual , :Hadith ;
+	:HId "H140"^^xsd:Literal ;
+	:Content """Ibn `Abbas performed ablution and washed his face (in the following way): He ladled out a handful of 
+water, rinsed his mouth and washed his nose with it by putting in water and then blowing it out. He 
+then, took another handful (of water) and did like this (gesturing) joining both hands, and washed his 
+face, took another handful of water and washed his right forearm. He again took another handful of 
+water and washed his left forearm, and passed wet hands over his head and took another handful of 
+water and poured it over his right foot (up to his ankles) and washed it thoroughly and similarly took 
+another handful of water and washed thoroughly his left foot (up to the ankles) and said, \"I saw 
+Allah's Apostle performing ablution in this way.\""""^^xsd:Literal ;
+	:Topic "Ablutions (Wudu)"^^xsd:Literal ;
+	:hasNarrator :P30272 , :P30279 , :P20160 , :P11163 , :P11020 , :P17 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H248 a owl:NamedIndividual , :Hadith ;
+	:HId "H248"^^xsd:Literal ;
+	:Content """Whenever the Prophet took a bath after Janaba he started by washing his hands and then performed 
+ablution like that for the prayer. After that he would put his fingers in water and move the roots of his 
+hair with them, and then pour three handfuls of water over his head and then pour water all over his 
+body."""^^xsd:Literal ;
+	:Topic "Bathing (Ghusl)"^^xsd:Literal ;
+	:hasNarrator :P30355 , :P20001 , :P11065 , :P10511 , :P53 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H249 a owl:NamedIndividual , :Hadith ;
+	:HId "H249"^^xsd:Literal ;
+	:Content """(the wife of the Prophet) Allah's Apostle performed ablution like that for the prayer but did not wash 
+his feet. He washed off the discharge from his private parts and then poured water over his body. He 
+withdrew his feet from that place (the place where he took the bath) and then washed them. And that 
+was his way of taking the bath of Janaba."""^^xsd:Literal ;
+	:Topic "Bathing (Ghusl)"^^xsd:Literal ;
+	:hasNarrator :P30388 , :P20005 , :P11060 , :P11342 , :P11211 , :P17 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H250 a owl:NamedIndividual , :Hadith ;
+	:HId "H250"^^xsd:Literal ;
+	:Content "The Prophet and I used to take a bath from a single pot called 'Faraq'."^^xsd:Literal ;
+	:Topic "Bathing (Ghusl)"^^xsd:Literal ;
+	:hasNarrator :P20404 , :P20177 , :P11013 , :P10511 , :P53 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H251 a owl:NamedIndividual , :Hadith ;
+	:HId "H251"^^xsd:Literal ;
+	:Content """`Aisha's brother and I went to `Aisha and he asked her about the bath of the Prophet. She brought a 
+pot containing about a Sa` of water and took a bath and poured it over her head and at what time there 
+was a screen between her and us."""^^xsd:Literal ;
+	:Topic "Bathing (Ghusl)"^^xsd:Literal ;
+	:hasNarrator :P30351 , :P20250 , :P20020 , :P11180 , :P10567 , :P53 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H252 a owl:NamedIndividual , :Hadith ;
+	:HId "H252"^^xsd:Literal ;
+	:Content """While I and my father were with Jabir bin `Abdullah, some People asked him about taking a bath He 
+replied, \"A Sa` of water is sufficient for you.\" A man said, \"A Sa` is not sufficient for me.\" Jabir said, 
+\"A Sa was sufficient for one who had more hair than you and was better than you (meaning the 
+Prophet).\" And then Jabir (put on) his garment and led the prayer."""^^xsd:Literal ;
+	:Topic "Bathing (Ghusl)"^^xsd:Literal ;
+	:hasNarrator :P30351 , :P20364 , :P20321 , :P11049 , :P11442 , :P34 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H253 a owl:NamedIndividual , :Hadith ;
+	:HId "H253"^^xsd:Literal ;
+	:Content "The Prophet and Maimuna used to take a bath from a single pot."^^xsd:Literal ;
+	:Topic "Bathing (Ghusl)"^^xsd:Literal ;
+	:hasNarrator :P20348 , :P20005 , :P11081 , :P11271 , :P17 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H334 a owl:NamedIndividual , :Hadith ;
+	:HId "H334"^^xsd:Literal ;
+	:Content """(the wife of the Prophet) We set out with Allah's Apostle on one of his journeys till we reached Al- 
+Baida' or Dhatul-Jaish, a necklace of mine was broken (and lost). Allah's Apostle stayed there to 
+search for it, and so did the people along with him. There was no water at that place, so the people 
+went to Abu- Bakr As-Siddiq and said, \"Don't you see what `Aisha has done? She has made Allah's 
+Apostle and the people stay where there is no water and they have no water with them.\" Abu Bakr 
+came while Allah's Apostle was sleeping with his head on my thigh, He said, to me: \"You have 
+detained Allah's Apostle and the people where there is no water and they have no water with them. 
+So he admonished me and said what Allah wished him to say and hit me on my flank with his hand. 
+Nothing prevented me from moving (because of pain) but the position of Allah's Apostle on my thigh. 
+Allah's Apostle got up when dawn broke and there was no water. So Allah revealed the Divine Verses 
+of Tayammum. So they all performed Tayammum. Usaid bin Hudair said, \"O the family of Abu Bakr! 
+This is not the first blessing of yours.\" Then the camel on which I was riding was caused to move 
+from its place and the necklace was found beneath it."""^^xsd:Literal ;
+	:Topic "Rubbing hands and feet with dust (Tayammum)"^^xsd:Literal ;
+	:hasNarrator :P30355 , :P20001 , :P10530 , :P10535 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H335 a owl:NamedIndividual , :Hadith ;
+	:HId "H335"^^xsd:Literal ;
+	:Content """The Prophet said, \"I have been given five things which were not given to any one else before me. 
+-1. Allah made me victorious by awe, (by His frightening my enemies) for a distance of one month's 
+journey. 
+-2. The earth has been made for me (and for my followers) a place for praying and a thing to perform 
+Tayammum, therefore anyone of my followers can pray wherever the time of a prayer is due. 
+-3. The booty has been made Halal (lawful) for me yet it was not lawful for anyone else before me. 
+-4. I have been given the right of intercession (on the Day of Resurrection). 
+-5. Every Prophet used to be sent to his nation only but I have been sent to all mankind."""^^xsd:Literal ;
+	:Topic "Rubbing hands and feet with dust (Tayammum)"^^xsd:Literal ;
+	:hasNarrator :P34207 , :P20468 , :P30253 , :P20468 , :P11429 , :P11665 , :P34 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H336 a owl:NamedIndividual , :Hadith ;
+	:HId "H336"^^xsd:Literal ;
+	:Content """Aisha said, \"I borrowed a necklace from Asma' and it was lost. So Allah's Apostle sent a man to 
+search for it and he found it. Then the time of the prayer became due and there was no water. They 
+prayed (without ablution) and informed Allah's Apostle about it, so the verse of Tayammum was 
+revealed.\" Usaid bin Hudair said to `Aisha, \"May Allah reward you. By Allah, whenever anything 
+happened which you did not like, Allah brought good for you and for the Muslims in that.\" 
+Al-Jurf and the time for the `Asr prayer became due while he was at Marbad-An-Na`am (sheepfold), 
+so he (performed Tayammum) and prayed there and then entered Medina when the sun was still high 
+but he did not repeat that prayer."""^^xsd:Literal ;
+	:Topic "Rubbing hands and feet with dust (Tayammum)"^^xsd:Literal ;
+	:hasNarrator :P30193 , :P20331 , :P11065 , :P10511 , :P53 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H337 a owl:NamedIndividual , :Hadith ;
+	:HId "H337"^^xsd:Literal ;
+	:Content """The Prophet came from the direction of Bir Jamal. A man met him and greeted him. But he did not 
+return back the greeting till he went to a (mud) wall and smeared his hands and his face with its dust 
+(performed Tayammum) and then returned back the greeting."""^^xsd:Literal ;
+	:Topic "Rubbing hands and feet with dust (Tayammum)"^^xsd:Literal ;
+	:hasNarrator :P30399 , :P20023 , :P11407 , :P11197 , :P11532 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H338 a owl:NamedIndividual , :Hadith ;
+	:HId "H338"^^xsd:Literal ;
+	:Content """A man came to `Umar bin Al-Khattab and said, \"I became Junub but no water was available.\" 
+`Ammar bin Yasir said to `Umar, \"Do you remember that you and I (became Junub while both of us) 
+were together on a journey and you didn't pray but I rolled myself on the ground and prayed? I 
+informed the Prophet about it and he said, 'It would have been sufficient for you to do like this.' The 
+Prophet then stroked lightly the earth with his hands and then blew off the dust and passed his hands 
+over his face and hands.\""""^^xsd:Literal ;
+	:Topic "Rubbing hands and feet with dust (Tayammum)"^^xsd:Literal ;
+	:hasNarrator :P20404 , :P20020 , :P11069 , :P11423 , :P11346 , :P4046 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H339 a owl:NamedIndividual , :Hadith ;
+	:HId "H339"^^xsd:Literal ;
+	:Content """(on the authority of his father who said) `Ammar said so (the above Statement). And Shu`ba stroked 
+lightly the earth with his hands and brought them close to his mouth (blew off the dust) and passed 
+them over his face and then the backs of his hands. `Ammar said, \"Ablution (meaning Tayammum 
+here) is sufficient for a Muslim if water is not available.\""""^^xsd:Literal ;
+	:Topic "Rubbing hands and feet with dust (Tayammum)"^^xsd:Literal ;
+	:hasNarrator :P20219 , :P20020 , :P11069 , :P11423 , :P11346 , :P4046 , :P20291 , :P20020 , :P11069 , :P11423 , :P11346 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H349 a owl:NamedIndividual , :Hadith ;
+	:HId "H349"^^xsd:Literal ;
+	:Content """Allah's Apostle said, \"While I was at Mecca the roof of my house was opened and Gabriel descended, 
+opened my chest, and washed it with Zamzam water. Then he brought a golden tray full of wisdom 
+and faith and having poured its contents into my chest, he closed it. Then he took my hand and 
+ascended with me to the nearest heaven, when I reached the nearest heaven, Gabriel said to the 
+gatekeeper of the heaven, 'Open (the gate).' The gatekeeper asked, 'Who is it?' Gabriel answered: 
+'Gabriel.' He asked, 'Is there anyone with you?' Gabriel replied, 'Yes, Muhammad I is with me.' He 
+asked, 'Has he been called?' Gabriel said, 'Yes.' So the gate was opened and we went over the nearest 
+heaven and there we saw a man sitting with some people on his right and some on his left. When he 
+looked towards his right, he laughed and when he looked toward his left he wept. Then he said, 
+'Welcome! O pious Prophet and pious son.' I asked Gabriel, 'Who is he?' He replied, 'He is Adam and 
+the people on his right and left are the souls of his offspring. Those on his right are the people of 
+Paradise and those on his left are the people of Hell and when he looks towards his right he laughs and 
+when he looks towards his left he weeps.' 
+Then he ascended with me till he reached the second heaven and he (Gabriel) said to its gatekeeper, 
+'Open (the gate).' The gatekeeper said to him the same as the gatekeeper of the first heaven had said 
+and he opened the gate. Anas said: \"Abu Dhar added that the Prophet met Adam, Idris, Moses, Jesus 
+and Abraham, he (Abu Dhar) did not mention on which heaven they were but he mentioned that he 
+(the Prophet ) met Adam on the nearest heaven and Abraham on the sixth heaven. Anas said, \"When 
+Gabriel along with the Prophet passed by Idris, the latter said, 'Welcome! O pious Prophet and pious 
+brother.' The Prophet asked, 'Who is he?' Gabriel replied, 'He is Idris.\" The Prophet added, \"I passed 
+by Moses and he said, 'Welcome! O pious Prophet and pious brother.' I asked Gabriel, 'Who is he?' 
+Gabriel replied, 'He is Moses.' Then I passed by Jesus and he said, 'Welcome! O pious brother and 
+pious Prophet.' I asked, 'Who is he?' Gabriel replied, 'He is Jesus. 
+Then I passed by Abraham and he said, 'Welcome! O pious Prophet and pious son.' I asked Gabriel, 
+'Who is he?' Gabriel replied, 'He is Abraham. The Prophet added, 'Then Gabriel ascended with me to a 
+place where I heard the creaking of the pens.\" Ibn Hazm and Anas bin Malik said: The Prophet said, 
+\"Then Allah enjoined fifty prayers on my followers when I returned with this order of Allah, I passed 
+by Moses who asked me, 'What has Allah enjoined on your followers?' I replied, 'He has enjoined 
+fifty prayers on them.' Moses said, 'Go back to your Lord (and appeal for reduction) for your followers 
+will not be able to bear it.' (So I went back to Allah and requested for reduction) and He reduced it to 
+half. When I passed by Moses again and informed him about it, he said, 'Go back to your Lord as your 
+followers will not be able to bear it.' So I returned to Allah and requested for further reduction and 
+half of it was reduced. I again passed by Moses and he said to me: 'Return to your Lord, for your 
+followers will not be able to bear it. So I returned to Allah and He said, 'These are five prayers and 
+they are all (equal to) fifty (in reward) for My Word does not change.' I returned to Moses and he told 
+me to go back once again. I replied, 'Now I feel shy of asking my Lord again.' Then Gabriel took me 
+till we '' reached Sidrat-il-Muntaha (Lote tree of; the utmost boundary) which was shrouded in colors, 
+indescribable. Then I was admitted into Paradise where I found small (tents or) walls (made) of pearls 
+and its earth was of musk.\""""^^xsd:Literal ;
+	:Topic "Prayers (Salat)"^^xsd:Literal ;
+	:hasNarrator :P30399 , :P20023 , :P20475 , :P11013 , :P19 , :P23 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H350 a owl:NamedIndividual , :Hadith ;
+	:HId "H350"^^xsd:Literal ;
+	:Content """the mother of believers: Allah enjoined the prayer when He enjoined it, it was two rak`at only (in 
+every prayer) both when in residence or on journey. Then the prayers offered on journey remained the 
+same, but (the rak`at of) the prayers for non-travelers were increased."""^^xsd:Literal ;
+	:Topic "Prayers (Salat)"^^xsd:Literal ;
+	:hasNarrator :P30355 , :P20001 , :P11176 , :P10511 , :P53 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H351 a owl:NamedIndividual , :Hadith ;
+	:HId "H351"^^xsd:Literal ;
+	:Content """We were ordered to bring out our menstruating women and veiled women in the religious gatherings 
+and invocation of Muslims on the two `Id festivals. These menstruating women were to keep away 
+from their Musalla. A woman asked, \"O Allah's Apostle ' What about one who does not have a veil?\" 
+He said, \"Let her share the veil of her companion.\""""^^xsd:Literal ;
+	:Topic "Prayers (Salat)"^^xsd:Literal ;
+	:hasNarrator :P20040 , :P20303 , :P20278 , :P71 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H352 a owl:NamedIndividual , :Hadith ;
+	:HId "H352"^^xsd:Literal ;
+	:Content """Once Jabir prayed with his Izar tied to his back while his clothes were Lying beside him on a wooden 
+peg. Somebody asked him, \"Do you offer your prayer in a single Izar?\" He replied, \"I did so to show it 
+to a fool like you. Had anyone of us two garments in the lifetime of the Prophet?\""""^^xsd:Literal ;
+	:Topic "Prayers (Salat)"^^xsd:Literal ;
+	:hasNarrator :P30184 , :P20163 , :P11544 , :P11048 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H353 a owl:NamedIndividual , :Hadith ;
+	:HId "H353"^^xsd:Literal ;
+	:Content """I saw Jabir bin `Abdullah praying in a single garment and he said that he had seen the Prophet praying 
+in a single garment."""^^xsd:Literal ;
+	:Topic "Prayers (Salat)"^^xsd:Literal ;
+	:hasNarrator :P30111 , :P20441 , :P11048 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H354 a owl:NamedIndividual , :Hadith ;
+	:HId "H354"^^xsd:Literal ;
+	:Content "The Prophet prayed in one garment and crossed its ends."^^xsd:Literal ;
+	:Topic "Prayers (Salat)"^^xsd:Literal ;
+	:hasNarrator :P20340 , :P11065 , :P10511 , :P246 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H522 a owl:NamedIndividual , :Hadith ;
+	:HId "H522"^^xsd:Literal ;
+	:Content """Once `Umar bin `Abdul `Aziz delayed the prayer and `Urwa bin Az-Zubair went to him and said, 
+\"Once in 'Iraq, Al-Mughira bin Shu`ba delayed his prayers and Abi Mas`ud Al-Ansari went to him 
+and said, 'O Mughira! What is this? Don't you know that once Gabriel came and offered the prayer 
+(Fajr prayer) and Allah's Apostle prayed too, then he prayed again (Zuhr prayer) and so did Allah's 
+Apostle and again he prayed (`Asr prayers and Allah's Apostle did the same; again he prayed 
+(Maghrib-prayer) and so did Allah's Apostle and again prayed (`Isha prayer) and so did Allah's 
+Apostle and (Gabriel) said, 'I was ordered to do so (to demonstrate the prayers prescribed to you)?'\" 
+`Umar (bin `Abdul `Aziz) said to `Urwa, \"Be sure of what you Say. Did Gabriel lead Allah's Apostle 
+at the stated times of the prayers?\" `Urwa replied, \"Bashir bin Abi Mas`ud narrated like this on the 
+authority of his father.\" `Urwa added, \"Aisha told me that Allah's Apostle used to pray `Asr prayer 
+when the sunshine was still inside her residence (during the early time of `Asr)."""^^xsd:Literal ;
+	:Topic "Times of the Prayers"^^xsd:Literal ;
+	:hasNarrator :P20164 , :P11013 , :P166 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H523 a owl:NamedIndividual , :Hadith ;
+	:HId "H523"^^xsd:Literal ;
+	:Content """\"Once a delegation of `Abdul Qais came to Allah's Apostle and said, \"We belong to such and such 
+branch of the tribe of Rab'a [??] and we can only come to you in the sacred months. Order us to do 
+something good so that we may (carry out) take it from you and also invite to it our people whom we 
+have left behind (at home).\" The Prophet said, \" I order you to do four things and forbid you from four 
+things. (The first four are as follows): 
+-1. To believe in Allah. (And then he: explained it to them i.e.) to testify that none has the right to be 
+worshipped but Allah and (Muhammad) am Allah's Apostle 
+-2. To offer prayers perfectly (at the stated times): 
+-3. To pay Zakat (obligatory charity) 
+-4. To give me Khumus 
+(The other four things which are forbidden are as follows): 
+-1. Dubba 
+-2. Hantam 
+-3. Muqaiyat [??] 
+-4. Naqir (all these are utensils used for the preparation of alcoholic drinks)."""^^xsd:Literal ;
+	:Topic "Times of the Prayers"^^xsd:Literal ;
+	:hasNarrator :P30367 , :P20243 , :P11309 , :P17 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H524 a owl:NamedIndividual , :Hadith ;
+	:HId "H524"^^xsd:Literal ;
+	:Content """I gave the pledge of allegiance to Allah's Apostle for to offer prayers perfectly, to pay Zakat regularly, 
+and to give good advice to every Muslim."""^^xsd:Literal ;
+	:Topic "Times of the Prayers"^^xsd:Literal ;
+	:hasNarrator :P30170 , :P20031 , :P11418 , :P11046 , :P4057 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H525 a owl:NamedIndividual , :Hadith ;
+	:HId "H525"^^xsd:Literal ;
+	:Content """that he had heard Hudhaifa saying, \"Once I was sitting with `Umar and he said, 'Who amongst you 
+remembers the statement of Allah's Apostle about the afflictions?' I said, 'I know it as the Prophet had 
+said it.' `Umar said, 'No doubt you are bold.' I said, 'The afflictions caused for a man by his wife, 
+money, children and neighbor are expiated by his prayers, fasting, charity and by enjoining (what is 
+good) and forbidding (what is evil).' `Umar said, 'I did not mean that but I asked about that affliction 
+which will spread like the waves of the sea.' I (Hudhaifa) said, 'O leader of the faithful believers! You 
+need not be afraid of it as there is a closed door between you and it.' `Umar asked, Will the door be 
+broken or opened?' I replied, 'It will be broken.' `Umar said, 'Then it will never be closed again.' I was 
+asked whether `Umar knew that door. I replied that he knew it as one knows that there will be night 
+before the tomorrow morning. I narrated a Hadith that was free from any misstatement\" The subnarrator 
+added that they deputized Masruq to ask Hudhaifa (about the door). Hudhaifa said, \"The door 
+was `Umar himself.\""""^^xsd:Literal ;
+	:Topic "Times of the Prayers"^^xsd:Literal ;
+	:hasNarrator :P30175 , :P20031 , :P11060 , :P11353 , :P145 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H526 a owl:NamedIndividual , :Hadith ;
+	:HId "H526"^^xsd:Literal ;
+	:Content """A man kissed a woman (unlawfully) and then went to the Prophet and informed him. Allah revealed: 
+And offer prayers perfectly At the two ends of the day And in some hours of the night (i.e. the five 
+compulsory prayers). Verily! good deeds remove (annul) the evil deeds (small sins) (11.114). The 
+man asked Allah's Apostle, \"Is it for me?\" He said, \"It is for all my followers.\""""^^xsd:Literal ;
+	:Topic "Times of the Prayers"^^xsd:Literal ;
+	:hasNarrator :P30367 , :P20304 , :P11289 , :P11113 , :P16 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H527 a owl:NamedIndividual , :Hadith ;
+	:HId "H527"^^xsd:Literal ;
+	:Content """I asked the Prophet \"Which deed is the dearest to Allah?\" He replied, \"To offer the prayers at their 
+early stated fixed times.\" I asked, \"What is the next (in goodness)?\" He replied, \"To be good and 
+dutiful to your parents\" I again asked, \"What is the next (in goodness)?\" He replied, 'To participate in 
+Jihad (religious fighting) in Allah's cause.\" `Abdullah added, \"I asked only that much and if I had 
+asked more, the Prophet would have told me more.\""""^^xsd:Literal ;
+	:Topic "Times of the Prayers"^^xsd:Literal ;
+	:hasNarrator :P20296 , :P20020 , :P11663 , :P15580 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H603 a owl:NamedIndividual , :Hadith ;
+	:HId "H603"^^xsd:Literal ;
+	:Content """The people mentioned the fire and the bell (they suggested those as signals to indicate the starting of 
+prayers), and by that they mentioned the Jews and the Christians. Then Bilal was ordered to 
+pronounce Adhan for the prayer by saying its wordings twice, and for the Iqama (the call for the 
+actual standing for the prayers in rows) by saying its wordings once. (Iqama is pronounced when the 
+people are ready for the prayer)."""^^xsd:Literal ;
+	:Topic "Call to Prayers (Adhaan)"^^xsd:Literal ;
+	:hasNarrator :P30156 , :P20258 , :P11282 , :P11047 , :P19 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H604 a owl:NamedIndividual , :Hadith ;
+	:HId "H604"^^xsd:Literal ;
+	:Content """When the Muslims arrived at Medina, they used to assemble for the prayer, and used to guess the time 
+for it. During those days, the practice of Adhan for the prayers had not been introduced yet. Once they 
+discussed this problem regarding the call for prayer. Some people suggested the use of a bell like the 
+Christians, others proposed a trumpet like the horn used by the Jews, but `Umar was the first to 
+suggest that a man should call (the people) for the prayer; so Allah's Apostle ordered Bilal to get up 
+and pronounce the Adhan for prayers."""^^xsd:Literal ;
+	:Topic "Call to Prayers (Adhaan)"^^xsd:Literal ;
+	:hasNarrator :P30277 , :P20121 , :P11070 , :P11014 , :P18 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H605 a owl:NamedIndividual , :Hadith ;
+	:HId "H605"^^xsd:Literal ;
+	:Content """Bilal was ordered to repeat the wording of the Adhan for prayers twice, and to pronounce the wording 
+of the Iqama once except \"Qad-qamat-is-salat\"."""^^xsd:Literal ;
+	:Topic "Call to Prayers (Adhaan)"^^xsd:Literal ;
+	:hasNarrator :P20193 , :P20022 , :P11015 , :P11047 , :P19 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H606 a owl:NamedIndividual , :Hadith ;
+	:HId "H606"^^xsd:Literal ;
+	:Content """When the number of Muslims increased they discussed the question as to how to know the time for 
+the prayer by some familiar means. Some suggested that a fire be lit (at the time of the prayer) and 
+others put forward the proposal to ring the bell. Bilal was ordered to pronounce the wording of Adhan 
+twice and of the Iqama once only."""^^xsd:Literal ;
+	:Topic "Call to Prayers (Adhaan)"^^xsd:Literal ;
+	:hasNarrator :P30213 , :P20259 , :P11282 , :P11047 , :P19 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H607 a owl:NamedIndividual , :Hadith ;
+	:HId "H607"^^xsd:Literal ;
+	:Content """Anas said, \"Bilal was ordered to pronounce the wording of Adhan twice and of Iqama once only.\" The 
+sub narrator Isma`il said, \"I mentioned that to Aiyub and he added (to that), \"Except Iqama (i.e. Qadqamat- 
+is-salat which should be said twice)."""^^xsd:Literal ;
+	:Topic "Call to Prayers (Adhaan)"^^xsd:Literal ;
+	:hasNarrator :P30026 , :P20208 , :P11282 , :P11047 , :P19 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H608 a owl:NamedIndividual , :Hadith ;
+	:HId "H608"^^xsd:Literal ;
+	:Content """Allah's Apostle said, \"When the Adhan is pronounced Satan takes to his heels and passes wind with 
+noise during his flight in order not to hear the Adhan. When the Adhan is completed he comes back 
+and again takes to his heels when the Iqama is pronounced and after its completion he returns again 
+till he whispers into the heart of the person (to divert his attention from his prayer) and makes him 
+remember things which he does not recall to his mind before the prayer and that causes him to forget 
+how much he has prayed.\""""^^xsd:Literal ;
+	:Topic "Call to Prayers (Adhaan)"^^xsd:Literal ;
+	:hasNarrator :P30355 , :P20001 , :P11061 , :P11197 , :P13 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H876 a owl:NamedIndividual , :Hadith ;
+	:HId "H876"^^xsd:Literal ;
+	:Content """I heard Allah's Apostle (p.b.u.h) saying, \"We (Muslims) are the last (to come) but (will be) the 
+foremost on the Day of Resurrection though the former nations were given the Holy Scriptures before 
+us. And this was their day (Friday) the celebration of which was made compulsory for them but they 
+differed about it. So Allah gave us the guidance for it (Friday) and all the other people are behind us in 
+this respect: the Jews' (holy day is) tomorrow (i.e. Saturday) and the Christians' (is) the day after 
+tomorrow (i.e. Sunday).\""""^^xsd:Literal ;
+	:Topic "Friday Prayer"^^xsd:Literal ;
+	:hasNarrator :P30330 , :P20428 , :P11061 , :P13 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H877 a owl:NamedIndividual , :Hadith ;
+	:HId "H877"^^xsd:Literal ;
+	:Content "Allah's Apostle (p.b.u.h) said, \"Anyone of you attending the Friday (prayers) should take a bath.\""^^xsd:Literal ;
+	:Topic "Friday Prayer"^^xsd:Literal ;
+	:hasNarrator :P30355 , :P20001 , :P11014 , :P18 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H878 a owl:NamedIndividual , :Hadith ;
+	:HId "H878"^^xsd:Literal ;
+	:Content """While `Umar bin Al-Khattab was standing and delivering the sermon on a Friday, one of the 
+companions of the Prophet, who was one of the foremost Muhajirs (emigrants) came. `Umar said to 
+him, \"What is the time now?\" He replied, \"I was busy and could not go back to my house till I heard 
+the Adhan. I did not perform more than the ablution.\" Thereupon `Umar said to him, \"Did you 
+perform only the ablution although you know that Allah's Apostle (p.b.u.h) used to order us to take a 
+bath (on Fridays)?\""""^^xsd:Literal ;
+	:Topic "Friday Prayer"^^xsd:Literal ;
+	:hasNarrator :P30144 , :P20216 , :P20001 , :P11013 , :P11011 , :P18 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H879 a owl:NamedIndividual , :Hadith ;
+	:HId "H879"^^xsd:Literal ;
+	:Content """Allah's Apostle (p.b.u.h) said, \"The taking of a bath on Friday is compulsory for every male (Muslim) 
+who has attained the age of puberty.\""""^^xsd:Literal ;
+	:Topic "Friday Prayer"^^xsd:Literal ;
+	:hasNarrator :P30355 , :P20001 , :P11177 , :P11020 , :P38 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H880 a owl:NamedIndividual , :Hadith ;
+	:HId "H880"^^xsd:Literal ;
+	:Content """I testify that Allah's Apostle said, \"The taking of a bath on Friday is compulsory for every male 
+Muslim who has attained the age of puberty and (also) the cleaning of his teeth with Siwak, and the 
+using of perfume if it is available.\" `Amr (a sub-narrator) said, \"I confirm that the taking of a bath is 
+compulsory, but as for the Siwak and the using of perfume, Allah knows better whether it is 
+obligatory or not, but according to the Hadith it is as above.\")"""^^xsd:Literal ;
+	:Topic "Friday Prayer"^^xsd:Literal ;
+	:hasNarrator :P5 , :P20221 , :P20020 , :P1544 ;
+	:hasContainer :Sahih-Bukhari .
+
+:H881 a owl:NamedIndividual , :Hadith ;
+	:HId "H881"^^xsd:Literal ;
+	:Content """Allah's Apostle (p.b.u.h) said, \"Any person who takes a bath on Friday like the bath of Janaba and 
+then goes for the prayer (in the first hour i.e. early), it is as if he had sacrificed a camel (in Allah's 
+cause); and whoever goes in the second hour it is as if he had sacrificed a cow; and whoever goes in 
+the third hour, then it is as if he had sacrificed a horned ram; and if one goes in the fourth hour, then it 
+is as if he had sacrificed a hen; and whoever goes in the fifth hour then it is as if he had offered an 
+egg. When the Imam comes out (i.e. starts delivering the Khutba), the angels present themselves to 
+listen to the Khutba.\""""^^xsd:Literal ;
+	:Topic "Friday Prayer"^^xsd:Literal ;
+	:hasNarrator :P30355 , :P20001 , :P11428 , :P11161 , :P13 ;
+	:hasContainer :Sahih-Bukhari .
+
+:P5 a owl:NamedIndividual , :Narrator ;
+	:PId "P5"^^xsd:Literal ;
+	:PName "Ali ibn Abi Talib"^^xsd:Literal ;
+	:Konia "Abu al-Hasan"^^xsd:Literal ;
+	:BirthYear "23 BH/600 CE (13 Rajab)"^^xsd:Literal ;
+	:DeathYear "40 AH/661 CE (21 Ramadhan)"^^xsd:Literal .
+
+:P13 a owl:NamedIndividual , :Narrator ;
+	:PId "P13"^^xsd:Literal ;
+	:PName "Abu Hurairah"^^xsd:Literal ;
+	:Konia "Abu Hurairah"^^xsd:Literal ;
+	:BirthYear "12 BH/603 CE"^^xsd:Literal ;
+	:DeathYear "59 AH/681 CE"^^xsd:Literal .
+
+:P16 a owl:NamedIndividual , :Narrator ;
+	:PId "P16"^^xsd:Literal ;
+	:PName "ibn Mas'ud"^^xsd:Literal ;
+	:Konia "Abu 'Abdur Rahman"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 32 AH/ 652 CE"^^xsd:Literal .
+
+:P17 a owl:NamedIndividual , :Narrator ;
+	:PId "P17"^^xsd:Literal ;
+	:PName "ibn Abbas"^^xsd:Literal ;
+	:Konia "Abu al-Abbas"^^xsd:Literal ;
+	:BirthYear "3 BH/619 CE"^^xsd:Literal ;
+	:DeathYear "68 AH/687 CE"^^xsd:Literal .
+
+:P18 a owl:NamedIndividual , :Narrator ;
+	:PId "P18"^^xsd:Literal ;
+	:PName "ibn Umar"^^xsd:Literal ;
+	:Konia "Abu 'Abdur Rahman"^^xsd:Literal ;
+	:BirthYear "10 BH/613 CE"^^xsd:Literal ;
+	:DeathYear "74 AH/693 CE"^^xsd:Literal .
+
+:P19 a owl:NamedIndividual , :Narrator ;
+	:PId "P19"^^xsd:Literal ;
+	:PName "Anas bin Malik"^^xsd:Literal ;
+	:Konia "Abu Hamza"^^xsd:Literal ;
+	:BirthYear "10 BH/613 CE"^^xsd:Literal ;
+	:DeathYear "93 AH/712 CE"^^xsd:Literal .
+
+:P23 a owl:NamedIndividual , :Narrator ;
+	:PId "P23"^^xsd:Literal ;
+	:PName "Abu Dharr al-Ghaffari"^^xsd:Literal ;
+	:Konia "Abu Dhar"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 32 AH/652 CE"^^xsd:Literal .
+
+:P29 a owl:NamedIndividual , :Narrator ;
+	:PId "P29"^^xsd:Literal ;
+	:PName "'Abdullah bin 'Amr bin al-'Aas"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 63 AH/65 AH"^^xsd:Literal .
+
+:P34 a owl:NamedIndividual , :Narrator ;
+	:PId "P34"^^xsd:Literal ;
+	:PName "Jabir ibn 'Abdullah"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear "16 BH/607 CE"^^xsd:Literal ;
+	:DeathYear "~78 AH/687 CE"^^xsd:Literal .
+
+:P38 a owl:NamedIndividual , :Narrator ;
+	:PId "P38"^^xsd:Literal ;
+	:PName "Abu Sa'id al-Khudri"^^xsd:Literal ;
+	:Konia "Abu Sa'id"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 74 AH"^^xsd:Literal .
+
+:P41 a owl:NamedIndividual , :Narrator ;
+	:PId "P41"^^xsd:Literal ;
+	:PName "Abu Musa al-Asha'ari"^^xsd:Literal ;
+	:Konia "Abu Musa"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~43 or 52 AH /662 or 672 CE"^^xsd:Literal .
+
+:P50 a owl:NamedIndividual , :Narrator ;
+	:PId "P50"^^xsd:Literal ;
+	:PName "Usamah ibn Zayd"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "~7 BH"^^xsd:Literal ;
+	:DeathYear "54 AH/663 CE"^^xsd:Literal .
+
+:P53 a owl:NamedIndividual , :Narrator ;
+	:PId "P53"^^xsd:Literal ;
+	:PName "'Aisha bint Abi Bakr"^^xsd:Literal ;
+	:Konia "Umm 'Abdullah"^^xsd:Literal ;
+	:BirthYear "9 BH/614 CE"^^xsd:Literal ;
+	:DeathYear "57 AH/678 CE (17 Ramadan)"^^xsd:Literal .
+
+:P71 a owl:NamedIndividual , :Narrator ;
+	:PId "P71"^^xsd:Literal ;
+	:PName "Umm Atiyyah Ansariyah"^^xsd:Literal ;
+	:Konia "Umm Atiyyah"^^xsd:Literal ;
+	:BirthYear "Medina, Basra"^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P145 a owl:NamedIndividual , :Narrator ;
+	:PId "P145"^^xsd:Literal ;
+	:PName "Hudhayfah ibn al-Yaman"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~37 AH/658 CE"^^xsd:Literal .
+
+:P166 a owl:NamedIndividual , :Narrator ;
+	:PId "P166"^^xsd:Literal ;
+	:PName "al-Mughira ibn Shu'ba"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 50 AH/670 CE or 53 AH"^^xsd:Literal .
+
+:P246 a owl:NamedIndividual , :Narrator ;
+	:PId "P246"^^xsd:Literal ;
+	:PName "'Umar bin Abi Salamah"^^xsd:Literal ;
+	:Konia "Abu Hafs"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 83 AH/701 CE"^^xsd:Literal .
+
+:P639 a owl:NamedIndividual , :Narrator ;
+	:PId "P639"^^xsd:Literal ;
+	:PName "'Abbad bin Tameem Mazni"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 63 AH"^^xsd:Literal .
+
+:P1544 a owl:NamedIndividual , :Narrator ;
+	:PId "P1544"^^xsd:Literal ;
+	:PName "'Amr bin Saleem bin Khalada"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~104 AH"^^xsd:Literal .
+
+:P4046 a owl:NamedIndividual , :Narrator ;
+	:PId "P4046"^^xsd:Literal ;
+	:PName "'Abdur Rahman bin Abza"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear "Medina/Makkah/Kufa"^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P4057 a owl:NamedIndividual , :Narrator ;
+	:PId "P4057"^^xsd:Literal ;
+	:PName "Jarir bin 'Abdullah al-Bajli"^^xsd:Literal ;
+	:Konia "Abu 'Amr"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~51 AH"^^xsd:Literal .
+
+:P10511 a owl:NamedIndividual , :Narrator ;
+	:PId "P10511"^^xsd:Literal ;
+	:PName "'Urwa ibn al-Zubayr"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear "23 AH/643 CE"^^xsd:Literal ;
+	:DeathYear "93 AH/713 CE"^^xsd:Literal .
+
+:P10530 a owl:NamedIndividual , :Narrator ;
+	:PId "P10530"^^xsd:Literal ;
+	:PName "'Abdur Rahman bin al-Qasim"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "~50 AH"^^xsd:Literal ;
+	:DeathYear "126 AH or after"^^xsd:Literal .
+
+:P10535 a owl:NamedIndividual , :Narrator ;
+	:PId "P10535"^^xsd:Literal ;
+	:PName "al-Qasim ibn Muhammad"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "~38 AH"^^xsd:Literal ;
+	:DeathYear "106/108 AH"^^xsd:Literal .
+
+:P10567 a owl:NamedIndividual , :Narrator ;
+	:PId "P10567"^^xsd:Literal ;
+	:PName "Abu Salama bin 'Abdur Rahman"^^xsd:Literal ;
+	:Konia "Abu Salama"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 94 AH or 104 AH"^^xsd:Literal .
+
+:P11002 a owl:NamedIndividual , :Narrator ;
+	:PId "P11002"^^xsd:Literal ;
+	:PName "Sa'id ibn al-Musayyib"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "14 AH/637 CE"^^xsd:Literal ;
+	:DeathYear "94 AH/715 CE"^^xsd:Literal .
+
+:P11004 a owl:NamedIndividual , :Narrator ;
+	:PId "P11004"^^xsd:Literal ;
+	:PName "'Ubaydullah bin 'Abdullah bin 'Utba"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear "~16 AH/639 CE"^^xsd:Literal ;
+	:DeathYear "94 AH/715 CE or 97 AH"^^xsd:Literal .
+
+:P11011 a owl:NamedIndividual , :Narrator ;
+	:PId "P11011"^^xsd:Literal ;
+	:PName "Salim bin 'Abdullah bin 'Umar"^^xsd:Literal ;
+	:Konia "Abu 'Amr"^^xsd:Literal ;
+	:BirthYear "~30 AH"^^xsd:Literal ;
+	:DeathYear "~106 AH"^^xsd:Literal .
+
+:P11013 a owl:NamedIndividual , :Narrator ;
+	:PId "P11013"^^xsd:Literal ;
+	:PName "al-Zuhri"^^xsd:Literal ;
+	:Konia "Abu Bakr"^^xsd:Literal ;
+	:BirthYear "51 AH/671 CE"^^xsd:Literal ;
+	:DeathYear "124 AH/741 CE"^^xsd:Literal .
+
+:P11014 a owl:NamedIndividual , :Narrator ;
+	:PId "P11014"^^xsd:Literal ;
+	:PName "Nafie'"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear "~30 AH"^^xsd:Literal ;
+	:DeathYear "117 or 119 AH"^^xsd:Literal .
+
+:P11015 a owl:NamedIndividual , :Narrator ;
+	:PId "P11015"^^xsd:Literal ;
+	:PName "Ayoub al-Sakhtiyani"^^xsd:Literal ;
+	:Konia "Abu Bakr"^^xsd:Literal ;
+	:BirthYear "66 or 68 AH"^^xsd:Literal ;
+	:DeathYear "131 AH"^^xsd:Literal .
+
+:P11019 a owl:NamedIndividual , :Narrator ;
+	:PId "P11019"^^xsd:Literal ;
+	:PName "Qatada"^^xsd:Literal ;
+	:Konia "Abu al-Khattab"^^xsd:Literal ;
+	:BirthYear "~60 AH"^^xsd:Literal ;
+	:DeathYear "~117 AH"^^xsd:Literal .
+
+:P11020 a owl:NamedIndividual , :Narrator ;
+	:PId "P11020"^^xsd:Literal ;
+	:PName "'Ata ibn Yasar"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "19 AH"^^xsd:Literal ;
+	:DeathYear "103 AH"^^xsd:Literal .
+
+:P11046 a owl:NamedIndividual , :Narrator ;
+	:PId "P11046"^^xsd:Literal ;
+	:PName "Qays bin Abi Hazim"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~90 AH"^^xsd:Literal .
+
+:P11047 a owl:NamedIndividual , :Narrator ;
+	:PId "P11047"^^xsd:Literal ;
+	:PName "Abu Qalaba"^^xsd:Literal ;
+	:Konia "'Abdullah bin Zayd al-Jarmi"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 104 AH or later"^^xsd:Literal .
+
+:P11048 a owl:NamedIndividual , :Narrator ;
+	:PId "P11048"^^xsd:Literal ;
+	:PName "Muhammad bin al-Munkdar bin 'Abdullah"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear "After  30 AH"^^xsd:Literal ;
+	:DeathYear "130 AH or after"^^xsd:Literal .
+
+:P11049 a owl:NamedIndividual , :Narrator ;
+	:PId "P11049"^^xsd:Literal ;
+	:PName "Abu Ishaq al-Sabay'ai'"^^xsd:Literal ;
+	:Konia "Abu Ishaq"^^xsd:Literal ;
+	:BirthYear "~29 AH"^^xsd:Literal ;
+	:DeathYear "~129 AH"^^xsd:Literal .
+
+:P11052 a owl:NamedIndividual , :Narrator ;
+	:PId "P11052"^^xsd:Literal ;
+	:PName "'Amir al-Sha'bi"^^xsd:Literal ;
+	:Konia "Abu 'Amr"^^xsd:Literal ;
+	:BirthYear "~19 AH"^^xsd:Literal ;
+	:DeathYear "~104 AH"^^xsd:Literal .
+
+:P11060 a owl:NamedIndividual , :Narrator ;
+	:PId "P11060"^^xsd:Literal ;
+	:PName "Sulaiman al-A'mash"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "61 AH"^^xsd:Literal ;
+	:DeathYear "147 AH"^^xsd:Literal .
+
+:P11061 a owl:NamedIndividual , :Narrator ;
+	:PId "P11061"^^xsd:Literal ;
+	:PName "Abu al-Zanad"^^xsd:Literal ;
+	:Konia "Abu 'Abdur Rahman"^^xsd:Literal ;
+	:BirthYear "~65 AH"^^xsd:Literal ;
+	:DeathYear "130 AH or after"^^xsd:Literal .
+
+:P11065 a owl:NamedIndividual , :Narrator ;
+	:PId "P11065"^^xsd:Literal ;
+	:PName "Hisham bin 'Urwa"^^xsd:Literal ;
+	:Konia "Abu al-Mundhir"^^xsd:Literal ;
+	:BirthYear "~61 AH"^^xsd:Literal ;
+	:DeathYear "146 AH"^^xsd:Literal .
+
+:P11069 a owl:NamedIndividual , :Narrator ;
+	:PId "P11069"^^xsd:Literal ;
+	:PName "al-Hakam bin 'Utayba"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 113 AH or after"^^xsd:Literal .
+
+:P11070 a owl:NamedIndividual , :Narrator ;
+	:PId "P11070"^^xsd:Literal ;
+	:PName "Ibn Jurayj"^^xsd:Literal ;
+	:Konia "Abu al-Walid"^^xsd:Literal ;
+	:BirthYear "~80 AH (est.)"^^xsd:Literal ;
+	:DeathYear "150 AH or after"^^xsd:Literal .
+
+:P11081 a owl:NamedIndividual , :Narrator ;
+	:PId "P11081"^^xsd:Literal ;
+	:PName "'Amr bin Dinar"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 126 AH"^^xsd:Literal .
+
+:P11106 a owl:NamedIndividual , :Narrator ;
+	:PId "P11106"^^xsd:Literal ;
+	:PName "Musa bin 'Uqba"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "55 AH/674 CE"^^xsd:Literal ;
+	:DeathYear "141AH/758 CE"^^xsd:Literal .
+
+:P11113 a owl:NamedIndividual , :Narrator ;
+	:PId "P11113"^^xsd:Literal ;
+	:PName "Abu 'Uthman al-Nahdi"^^xsd:Literal ;
+	:Konia "Abu 'Uthman"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~95 AH"^^xsd:Literal .
+
+:P11161 a owl:NamedIndividual , :Narrator ;
+	:PId "P11161"^^xsd:Literal ;
+	:PName "Dhakwan Abu Salah al-Saman al-Ziyat"^^xsd:Literal ;
+	:Konia "Abu Salah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 101 AH"^^xsd:Literal .
+
+:P11163 a owl:NamedIndividual , :Narrator ;
+	:PId "P11163"^^xsd:Literal ;
+	:PName "Zayd bin Aslam"^^xsd:Literal ;
+	:Konia "Abu Usama"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 136 AH"^^xsd:Literal .
+
+:P11168 a owl:NamedIndividual , :Narrator ;
+	:PId "P11168"^^xsd:Literal ;
+	:PName "Sa'id bin Abi Sa'id (Kaysan)"^^xsd:Literal ;
+	:Konia "Abu Sa'd"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~120 AH"^^xsd:Literal .
+
+:P11169 a owl:NamedIndividual , :Narrator ;
+	:PId "P11169"^^xsd:Literal ;
+	:PName "Sa'id bin Abi Hilal"^^xsd:Literal ;
+	:Konia "Abu al-'Ala'"^^xsd:Literal ;
+	:BirthYear "70 AH"^^xsd:Literal ;
+	:DeathYear "133 AH or after"^^xsd:Literal .
+
+:P11176 a owl:NamedIndividual , :Narrator ;
+	:PId "P11176"^^xsd:Literal ;
+	:PName "Salah bin Kaysan al-Madni"^^xsd:Literal ;
+	:Konia "Abu al-Harith"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 140 AH or after"^^xsd:Literal .
+
+:P11177 a owl:NamedIndividual , :Narrator ;
+	:PId "P11177"^^xsd:Literal ;
+	:PName "Safwan bin Slym al-Madni"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 132 AH"^^xsd:Literal .
+
+:P11180 a owl:NamedIndividual , :Narrator ;
+	:PId "P11180"^^xsd:Literal ;
+	:PName "'Abdullah/Abu Bakr bin Hafs bin 'Umar"^^xsd:Literal ;
+	:Konia "Abu Bakr"^^xsd:Literal ;
+	:BirthYear "Medina"^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P11183 a owl:NamedIndividual , :Narrator ;
+	:PId "P11183"^^xsd:Literal ;
+	:PName "'Abdullah bin Dinar"^^xsd:Literal ;
+	:Konia "Abu 'Abdur Rahman"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 127 AH"^^xsd:Literal .
+
+:P11197 a owl:NamedIndividual , :Narrator ;
+	:PId "P11197"^^xsd:Literal ;
+	:PName "'Abdur Rahman bin Harmaz al-A'araj"^^xsd:Literal ;
+	:Konia "Abu Da'ud"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 117 AH"^^xsd:Literal .
+
+:P11211 a owl:NamedIndividual , :Narrator ;
+	:PId "P11211"^^xsd:Literal ;
+	:PName "Karayb bin Abi Muslim"^^xsd:Literal ;
+	:Konia "Abu Rashdayn (Ø£Ø¨Ù Ø±Ø´Ø¯ÙÙ)"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. before 98 AH"^^xsd:Literal .
+
+:P11225 a owl:NamedIndividual , :Narrator ;
+	:PId "P11225"^^xsd:Literal ;
+	:PName "Na'eem bin 'Abdullah al-Majmar"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear "Medina"^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P11229 a owl:NamedIndividual , :Narrator ;
+	:PId "P11229"^^xsd:Literal ;
+	:PName "Hilal bin Abi Maymuna"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. >  110 AH"^^xsd:Literal .
+
+:P11243 a owl:NamedIndividual , :Narrator ;
+	:PId "P11243"^^xsd:Literal ;
+	:PName "Hanzala bin Abi Sufyan bin 'Abdur Rahman"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 151 AH"^^xsd:Literal .
+
+:P11264 a owl:NamedIndividual , :Narrator ;
+	:PId "P11264"^^xsd:Literal ;
+	:PName "Yusuf bin Mahk"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 106 AH or before"^^xsd:Literal .
+
+:P11271 a owl:NamedIndividual , :Narrator ;
+	:PId "P11271"^^xsd:Literal ;
+	:PName "Jabir bin Zayd al-Azdi"^^xsd:Literal ;
+	:Konia "Abu al-Sha'tha'"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 93 AH or 103 AH"^^xsd:Literal .
+
+:P11282 a owl:NamedIndividual , :Narrator ;
+	:PId "P11282"^^xsd:Literal ;
+	:PName "Khalid bin Mahran al-Hadha'"^^xsd:Literal ;
+	:Konia "Abu al-Manazil"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~141 AH"^^xsd:Literal .
+
+:P11289 a owl:NamedIndividual , :Narrator ;
+	:PId "P11289"^^xsd:Literal ;
+	:PName "Sulaiman bin Tarkhan al-Taymi"^^xsd:Literal ;
+	:Konia "Abu al-Ma'tamar"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 143 AH"^^xsd:Literal .
+
+:P11309 a owl:NamedIndividual , :Narrator ;
+	:PId "P11309"^^xsd:Literal ;
+	:PName "Nasr bin 'Imran bin Isam"^^xsd:Literal ;
+	:Konia "Abu Jamrah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 128 AH"^^xsd:Literal .
+
+:P11325 a owl:NamedIndividual , :Narrator ;
+	:PId "P11325"^^xsd:Literal ;
+	:PName "Bryd bin 'Abdullah"^^xsd:Literal ;
+	:Konia "Abu Brd'h"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P11342 a owl:NamedIndividual , :Narrator ;
+	:PId "P11342"^^xsd:Literal ;
+	:PName "Salm bin Abi al-Ja'd"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 100 AH or after"^^xsd:Literal .
+
+:P11346 a owl:NamedIndividual , :Narrator ;
+	:PId "P11346"^^xsd:Literal ;
+	:PName "Sa'id bin 'Abdur Rahman bin Abza"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P11353 a owl:NamedIndividual , :Narrator ;
+	:PId "P11353"^^xsd:Literal ;
+	:PName "Shaqayq bin Salmah al-Asadi"^^xsd:Literal ;
+	:Konia "Abu Wa'il"^^xsd:Literal ;
+	:BirthYear "~1AH"^^xsd:Literal ;
+	:DeathYear "~ 100 AH"^^xsd:Literal .
+
+:P11407 a owl:NamedIndividual , :Narrator ;
+	:PId "P11407"^^xsd:Literal ;
+	:PName "Ja'far bin Rabi'ya bin Shrhbyl"^^xsd:Literal ;
+	:Konia "Abu Shrhbyl"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 136 AH"^^xsd:Literal .
+
+:P11410 a owl:NamedIndividual , :Narrator ;
+	:PId "P11410"^^xsd:Literal ;
+	:PName "Marthad bin 'Abdullah al-Yazni"^^xsd:Literal ;
+	:Konia "Abu al-Khayr"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~ 90 AH"^^xsd:Literal .
+
+:P11418 a owl:NamedIndividual , :Narrator ;
+	:PId "P11418"^^xsd:Literal ;
+	:PName "Isma'il bin Abi Khalid al-Ahmsi"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 146 AH"^^xsd:Literal .
+
+:P11419 a owl:NamedIndividual , :Narrator ;
+	:PId "P11419"^^xsd:Literal ;
+	:PName "Ja'far bin Iyas (Abi Wahshiyya)"^^xsd:Literal ;
+	:Konia "Abu Bashr"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~126 AH"^^xsd:Literal .
+
+:P11423 a owl:NamedIndividual , :Narrator ;
+	:PId "P11423"^^xsd:Literal ;
+	:PName "Dhar bin 'Abdullah al-Marhabi"^^xsd:Literal ;
+	:Konia "Abu 'Amr"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. before  100 AH"^^xsd:Literal .
+
+:P11428 a owl:NamedIndividual , :Narrator ;
+	:PId "P11428"^^xsd:Literal ;
+	:PName "Sami Maula Abi Bakr bin 'Abdur Rahman"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 130 AH"^^xsd:Literal .
+
+:P11429 a owl:NamedIndividual , :Narrator ;
+	:PId "P11429"^^xsd:Literal ;
+	:PName "Siyar Abu al-Hakam al-Anzi"^^xsd:Literal ;
+	:Konia "Abu al-Hakam"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 122 AH"^^xsd:Literal .
+
+:P11442 a owl:NamedIndividual , :Narrator ;
+	:PId "P11442"^^xsd:Literal ;
+	:PName "Muhammad bin 'Ali b. al-Hussain al-Baqir"^^xsd:Literal ;
+	:Konia "Abu Ja'far"^^xsd:Literal ;
+	:BirthYear "~56 AH"^^xsd:Literal ;
+	:DeathYear "After   110 AH"^^xsd:Literal .
+
+:P11447 a owl:NamedIndividual , :Narrator ;
+	:PId "P11447"^^xsd:Literal ;
+	:PName "Hamam bin Munabbih"^^xsd:Literal ;
+	:Konia "Abu 'Utba"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 132 AH"^^xsd:Literal .
+
+:P11532 a owl:NamedIndividual , :Narrator ;
+	:PId "P11532"^^xsd:Literal ;
+	:PName "'Umayr bin 'Abdullah"^^xsd:Literal ;
+	:Konia "Client Of Umm Fadl"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 104 AH"^^xsd:Literal .
+
+:P11544 a owl:NamedIndividual , :Narrator ;
+	:PId "P11544"^^xsd:Literal ;
+	:PName "Waqid bin Muhammad bin Zayd"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear "Medina"^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P11636 a owl:NamedIndividual , :Narrator ;
+	:PId "P11636"^^xsd:Literal ;
+	:PName "'Abdullah bin Abi al-Safar"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~126 AH"^^xsd:Literal .
+
+:P11663 a owl:NamedIndividual , :Narrator ;
+	:PId "P11663"^^xsd:Literal ;
+	:PName "al-Walid bin al-Yzar bin Hryth"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P11665 a owl:NamedIndividual , :Narrator ;
+	:PId "P11665"^^xsd:Literal ;
+	:PName "Yazid bin S'hyb"^^xsd:Literal ;
+	:Konia "Abu 'Uthman"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P11709 a owl:NamedIndividual , :Narrator ;
+	:PId "P11709"^^xsd:Literal ;
+	:PName "'Ikrama bin Khalid bin al-Aas"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. after 115 AH"^^xsd:Literal .
+
+:P11858 a owl:NamedIndividual , :Narrator ;
+	:PId "P11858"^^xsd:Literal ;
+	:PName "Sharayk bin 'Abdullah bin Abi Namr"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. ~  140 AH"^^xsd:Literal .
+
+:P11901 a owl:NamedIndividual , :Narrator ;
+	:PId "P11901"^^xsd:Literal ;
+	:PName "Abu Barda bin Abi Musa al-Asha'ari"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 103 AH or 104 AH"^^xsd:Literal .
+
+:P15580 a owl:NamedIndividual , :Narrator ;
+	:PId "P15580"^^xsd:Literal ;
+	:PName "Harun bin 'Antra"^^xsd:Literal ;
+	:Konia "Abu 'Amr"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 142 AH"^^xsd:Literal .
+
+:P20001 a owl:NamedIndividual , :Narrator ;
+	:PId "P20001"^^xsd:Literal ;
+	:PName "Imam Maalik"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear "93 AH/712 CE"^^xsd:Literal ;
+	:DeathYear "179 AH/795 CE"^^xsd:Literal .
+
+:P20005 a owl:NamedIndividual , :Narrator ;
+	:PId "P20005"^^xsd:Literal ;
+	:PName "Sufyan bin 'Uyaynah"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "107 AH"^^xsd:Literal ;
+	:DeathYear "196 AH"^^xsd:Literal .
+
+:P20020 a owl:NamedIndividual , :Narrator ;
+	:PId "P20020"^^xsd:Literal ;
+	:PName "Shu'bah bin al-Hajjaj"^^xsd:Literal ;
+	:Konia "Abu Bastam"^^xsd:Literal ;
+	:BirthYear "~82 AH"^^xsd:Literal ;
+	:DeathYear "160 AH"^^xsd:Literal .
+
+:P20022 a owl:NamedIndividual , :Narrator ;
+	:PId "P20022"^^xsd:Literal ;
+	:PName "Hammad bin Zayd"^^xsd:Literal ;
+	:Konia "Abu Isma'il"^^xsd:Literal ;
+	:BirthYear "98 AH"^^xsd:Literal ;
+	:DeathYear "179 AH"^^xsd:Literal .
+
+:P20023 a owl:NamedIndividual , :Narrator ;
+	:PId "P20023"^^xsd:Literal ;
+	:PName "al-Laith bin Sa'd"^^xsd:Literal ;
+	:Konia "Abu al-Harith"^^xsd:Literal ;
+	:BirthYear "94 AH"^^xsd:Literal ;
+	:DeathYear "175 AH"^^xsd:Literal .
+
+:P20031 a owl:NamedIndividual , :Narrator ;
+	:PId "P20031"^^xsd:Literal ;
+	:PName "Yahya bin Sa'id bin Farroukh al-Qatan"^^xsd:Literal ;
+	:Konia "Abu Sa'id"^^xsd:Literal ;
+	:BirthYear "~120 AH"^^xsd:Literal ;
+	:DeathYear "198 AH"^^xsd:Literal .
+
+:P20040 a owl:NamedIndividual , :Narrator ;
+	:PId "P20040"^^xsd:Literal ;
+	:PName "Musa bin Isma'il al-Munqari al-Tabudhaki"^^xsd:Literal ;
+	:Konia "Abu Salma"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 223 AH"^^xsd:Literal .
+
+:P20115 a owl:NamedIndividual , :Narrator ;
+	:PId "P20115"^^xsd:Literal ;
+	:PName "Ma'mar bin Rashid"^^xsd:Literal ;
+	:Konia "Abu 'Urwa"^^xsd:Literal ;
+	:BirthYear "95 or 96 AH"^^xsd:Literal ;
+	:DeathYear "154 AH/770 CE"^^xsd:Literal .
+
+:P20121 a owl:NamedIndividual , :Narrator ;
+	:PId "P20121"^^xsd:Literal ;
+	:PName "'Abdur-Razzaq"^^xsd:Literal ;
+	:Konia "Abu Bakr"^^xsd:Literal ;
+	:BirthYear "126 AH/744 CE"^^xsd:Literal ;
+	:DeathYear "211 AH/827 CE"^^xsd:Literal .
+
+:P20150 a owl:NamedIndividual , :Narrator ;
+	:PId "P20150"^^xsd:Literal ;
+	:PName "Ibrahim bin Sa'd bin Ibrahim"^^xsd:Literal ;
+	:Konia "Abu Ishaq"^^xsd:Literal ;
+	:BirthYear "~110 AH/728 CE"^^xsd:Literal ;
+	:DeathYear "~185 AH/800 CE"^^xsd:Literal .
+
+:P20155 a owl:NamedIndividual , :Narrator ;
+	:PId "P20155"^^xsd:Literal ;
+	:PName "Isma'il bin Ja'far bin Abi Kathir"^^xsd:Literal ;
+	:Konia "Abu Ishaq"^^xsd:Literal ;
+	:BirthYear "After 100 AH"^^xsd:Literal ;
+	:DeathYear "180 AH"^^xsd:Literal .
+
+:P20160 a owl:NamedIndividual , :Narrator ;
+	:PId "P20160"^^xsd:Literal ;
+	:PName "Sulaiman bin Bilal al-Taymi"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 177 AH"^^xsd:Literal .
+
+:P20163 a owl:NamedIndividual , :Narrator ;
+	:PId "P20163"^^xsd:Literal ;
+	:PName "'Asim bin Muhammad bin Zayd"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear "Medina"^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P20164 a owl:NamedIndividual , :Narrator ;
+	:PId "P20164"^^xsd:Literal ;
+	:PName "'Abdullah bin Muslima al-Qa'nabi"^^xsd:Literal ;
+	:Konia "Abu 'Abdur Rahman"^^xsd:Literal ;
+	:BirthYear "After  130 AH"^^xsd:Literal ;
+	:DeathYear "~221 AH"^^xsd:Literal .
+
+:P20169 a owl:NamedIndividual , :Narrator ;
+	:PId "P20169"^^xsd:Literal ;
+	:PName "Falayh bin Suliaman"^^xsd:Literal ;
+	:Konia "Abu Yahya"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 168 AH"^^xsd:Literal .
+
+:P20177 a owl:NamedIndividual , :Narrator ;
+	:PId "P20177"^^xsd:Literal ;
+	:PName "Muhammad bin 'Abdur Rahman b. Abi Dh'ab"^^xsd:Literal ;
+	:Konia "Abu al-Harith"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 158 AH"^^xsd:Literal .
+
+:P20178 a owl:NamedIndividual , :Narrator ;
+	:PId "P20178"^^xsd:Literal ;
+	:PName "Muhammad bin Flyh bin Sulaiman"^^xsd:Literal ;
+	:Konia ""^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 197 AH"^^xsd:Literal .
+
+:P20193 a owl:NamedIndividual , :Narrator ;
+	:PId "P20193"^^xsd:Literal ;
+	:PName "Sulaiman bin Harb"^^xsd:Literal ;
+	:Konia "Abu Ayoub"^^xsd:Literal ;
+	:BirthYear "~144 AH"^^xsd:Literal ;
+	:DeathYear "~224 AH"^^xsd:Literal .
+
+:P20208 a owl:NamedIndividual , :Narrator ;
+	:PId "P20208"^^xsd:Literal ;
+	:PName "Isma'il bin Ibrahim - Ibn 'Aliya"^^xsd:Literal ;
+	:Konia "Abu Bashr"^^xsd:Literal ;
+	:BirthYear "110 AH"^^xsd:Literal ;
+	:DeathYear "193 AH"^^xsd:Literal .
+
+:P20216 a owl:NamedIndividual , :Narrator ;
+	:PId "P20216"^^xsd:Literal ;
+	:PName "Jawayriyya bin Asma' bin 'Ubaid"^^xsd:Literal ;
+	:Konia "Abu Makharq"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 173 AH"^^xsd:Literal .
+
+:P20219 a owl:NamedIndividual , :Narrator ;
+	:PId "P20219"^^xsd:Literal ;
+	:PName "Hajjaj bin al-Minhal"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 217 AH"^^xsd:Literal .
+
+:P20221 a owl:NamedIndividual , :Narrator ;
+	:PId "P20221"^^xsd:Literal ;
+	:PName "Harmy bin 'Umarah"^^xsd:Literal ;
+	:Konia "Abu Ruh"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 201 AH"^^xsd:Literal .
+
+:P20243 a owl:NamedIndividual , :Narrator ;
+	:PId "P20243"^^xsd:Literal ;
+	:PName "'Aabad bin 'Aabad bin Habib"^^xsd:Literal ;
+	:Konia "Abu Mua'wiya"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 179 AH or after"^^xsd:Literal .
+
+:P20250 a owl:NamedIndividual , :Narrator ;
+	:PId "P20250"^^xsd:Literal ;
+	:PName "'Abdul Samad bin 'Abdul Warith bin Sa'id"^^xsd:Literal ;
+	:Konia "Abu Sahl"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 207 AH"^^xsd:Literal .
+
+:P20258 a owl:NamedIndividual , :Narrator ;
+	:PId "P20258"^^xsd:Literal ;
+	:PName "'Abdul Warith bin Sa'id bin Dhakwan"^^xsd:Literal ;
+	:Konia "Abu 'Ubaida"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 180 AH"^^xsd:Literal .
+
+:P20259 a owl:NamedIndividual , :Narrator ;
+	:PId "P20259"^^xsd:Literal ;
+	:PName "'Abdul Wahab bin 'Abdul Majeed al-Thaqaf"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "~108 AH"^^xsd:Literal ;
+	:DeathYear "194 AH"^^xsd:Literal .
+
+:P20278 a owl:NamedIndividual , :Narrator ;
+	:PId "P20278"^^xsd:Literal ;
+	:PName "Muhammad bin Ja'far Ghandar"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 194 AH"^^xsd:Literal .
+
+:P20283 a owl:NamedIndividual , :Narrator ;
+	:PId "P20283"^^xsd:Literal ;
+	:PName "Muhammad bin al-Fadl 'Aram"^^xsd:Literal ;
+	:Konia "Abu al-Nu'man"^^xsd:Literal ;
+	:BirthYear "~140 AH"^^xsd:Literal ;
+	:DeathYear "224 AH"^^xsd:Literal .
+
+:P20291 a owl:NamedIndividual , :Narrator ;
+	:PId "P20291"^^xsd:Literal ;
+	:PName "al-Nadr bin Shumayl al-Maazni"^^xsd:Literal ;
+	:Konia "Abu al-Hasan"^^xsd:Literal ;
+	:BirthYear "~120 AH"^^xsd:Literal ;
+	:DeathYear "204 AH"^^xsd:Literal .
+
+:P20296 a owl:NamedIndividual , :Narrator ;
+	:PId "P20296"^^xsd:Literal ;
+	:PName "Hisham bin 'Abdul Malik al-Tayalasi"^^xsd:Literal ;
+	:Konia "Abu al-Walid"^^xsd:Literal ;
+	:BirthYear "133 AH"^^xsd:Literal ;
+	:DeathYear "227 AH"^^xsd:Literal .
+
+:P20303 a owl:NamedIndividual , :Narrator ;
+	:PId "P20303"^^xsd:Literal ;
+	:PName "Yazid bin Ibrahim al-Tstry"^^xsd:Literal ;
+	:Konia "Abu Sa'id"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 163 AH"^^xsd:Literal .
+
+:P20304 a owl:NamedIndividual , :Narrator ;
+	:PId "P20304"^^xsd:Literal ;
+	:PName "Yazid bin Zari'"^^xsd:Literal ;
+	:Konia "Abu Mua'wiya"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 182 AH"^^xsd:Literal .
+
+:P20321 a owl:NamedIndividual , :Narrator ;
+	:PId "P20321"^^xsd:Literal ;
+	:PName "Zuhayr bin Mua'wiya bin Hudayj"^^xsd:Literal ;
+	:Konia "Abu Khaythma"^^xsd:Literal ;
+	:BirthYear "100 AH"^^xsd:Literal ;
+	:DeathYear "~174 AH"^^xsd:Literal .
+
+:P20331 a owl:NamedIndividual , :Narrator ;
+	:PId "P20331"^^xsd:Literal ;
+	:PName "'Abdullah bin Numayr"^^xsd:Literal ;
+	:Konia "Abu Hisham"^^xsd:Literal ;
+	:BirthYear "~115 AH"^^xsd:Literal ;
+	:DeathYear "199 AH"^^xsd:Literal .
+
+:P20340 a owl:NamedIndividual , :Narrator ;
+	:PId "P20340"^^xsd:Literal ;
+	:PName "'Ubaidullah bin Musa bin Abi al-Mukhtar"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear "~128 AH"^^xsd:Literal ;
+	:DeathYear "~213 AH"^^xsd:Literal .
+
+:P20348 a owl:NamedIndividual , :Narrator ;
+	:PId "P20348"^^xsd:Literal ;
+	:PName "al-Fadl bin Dakayn"^^xsd:Literal ;
+	:Konia "Abu Na'eem"^^xsd:Literal ;
+	:BirthYear "120 AH"^^xsd:Literal ;
+	:DeathYear "212 AH or 219 AH"^^xsd:Literal .
+
+:P20364 a owl:NamedIndividual , :Narrator ;
+	:PId "P20364"^^xsd:Literal ;
+	:PName "Yahya bin Aadm bin Sulaiman"^^xsd:Literal ;
+	:Konia "Abu Zakaria"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 203 AH"^^xsd:Literal .
+
+:P20367 a owl:NamedIndividual , :Narrator ;
+	:PId "P20367"^^xsd:Literal ;
+	:PName "Yahya bin Sa'id bin Aban bin Sa'id"^^xsd:Literal ;
+	:Konia "Abu Ayoub"^^xsd:Literal ;
+	:BirthYear "114 AH/732 CE"^^xsd:Literal ;
+	:DeathYear "194 AH/809 CE"^^xsd:Literal .
+
+:P20404 a owl:NamedIndividual , :Narrator ;
+	:PId "P20404"^^xsd:Literal ;
+	:PName "Aadm bin Abi Iyas"^^xsd:Literal ;
+	:Konia "Abu al-Hasan"^^xsd:Literal ;
+	:BirthYear "132 AH"^^xsd:Literal ;
+	:DeathYear "221 AH"^^xsd:Literal .
+
+:P20423 a owl:NamedIndividual , :Narrator ;
+	:PId "P20423"^^xsd:Literal ;
+	:PName "Khalid bin 'Abdullah al-Tahan"^^xsd:Literal ;
+	:Konia "Abu al-Haytham"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 182 AH"^^xsd:Literal .
+
+:P20428 a owl:NamedIndividual , :Narrator ;
+	:PId "P20428"^^xsd:Literal ;
+	:PName "Shu'aib bin Abi Hamza"^^xsd:Literal ;
+	:Konia "Abu Bashr"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 162 AH or after"^^xsd:Literal .
+
+:P20441 a owl:NamedIndividual , :Narrator ;
+	:PId "P20441"^^xsd:Literal ;
+	:PName "'Abdur Rahman bin Abi al-Mawal"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 173 AH"^^xsd:Literal .
+
+:P20443 a owl:NamedIndividual , :Narrator ;
+	:PId "P20443"^^xsd:Literal ;
+	:PName "Abu 'Amir al-'Aqdi"^^xsd:Literal ;
+	:Konia "Abu 'Amir"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 205 AH"^^xsd:Literal .
+
+:P20468 a owl:NamedIndividual , :Narrator ;
+	:PId "P20468"^^xsd:Literal ;
+	:PName "Hashaym bin Bashayr bin al-Qasim"^^xsd:Literal ;
+	:Konia "Abu Mua'wiya"^^xsd:Literal ;
+	:BirthYear "104 AH"^^xsd:Literal ;
+	:DeathYear "183 AH"^^xsd:Literal .
+
+:P20469 a owl:NamedIndividual , :Narrator ;
+	:PId "P20469"^^xsd:Literal ;
+	:PName "Wadah bin 'Abdullah al-Yashkari"^^xsd:Literal ;
+	:Konia "Abu 'Awanah"^^xsd:Literal ;
+	:BirthYear "122"^^xsd:Literal ;
+	:DeathYear "176 AH"^^xsd:Literal .
+
+:P20472 a owl:NamedIndividual , :Narrator ;
+	:PId "P20472"^^xsd:Literal ;
+	:PName "Yazid bin Harun"^^xsd:Literal ;
+	:Konia "Abu Khalid"^^xsd:Literal ;
+	:BirthYear "118 AH"^^xsd:Literal ;
+	:DeathYear "206 AH"^^xsd:Literal .
+
+:P20475 a owl:NamedIndividual , :Narrator ;
+	:PId "P20475"^^xsd:Literal ;
+	:PName "Yonus bin Yazid bin Abi al-Nijad"^^xsd:Literal ;
+	:Konia "Abu Yazid"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 160 AH"^^xsd:Literal .
+
+:P30021 a owl:NamedIndividual , :Narrator ;
+	:PId "P30021"^^xsd:Literal ;
+	:PName "Ishaq bin Rahwaya"^^xsd:Literal ;
+	:Konia "Abu Ya'qub"^^xsd:Literal ;
+	:BirthYear "161 AH"^^xsd:Literal ;
+	:DeathYear "238 AH/852 CE"^^xsd:Literal .
+
+:P30026 a owl:NamedIndividual , :Narrator ;
+	:PId "P30026"^^xsd:Literal ;
+	:PName "'Ali bin al-Madini"^^xsd:Literal ;
+	:Konia "Abu al-Hasan"^^xsd:Literal ;
+	:BirthYear "162 AH"^^xsd:Literal ;
+	:DeathYear "234 AH"^^xsd:Literal .
+
+:P30103 a owl:NamedIndividual , :Narrator ;
+	:PId "P30103"^^xsd:Literal ;
+	:PName "Isma'il bin 'Abdullah bin 'Abdullah"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 226 AH"^^xsd:Literal .
+
+:P30111 a owl:NamedIndividual , :Narrator ;
+	:PId "P30111"^^xsd:Literal ;
+	:PName "Matraf bin 'Abdullah"^^xsd:Literal ;
+	:Konia "Abu Mus'ab"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 220 AH"^^xsd:Literal .
+
+:P30144 a owl:NamedIndividual , :Narrator ;
+	:PId "P30144"^^xsd:Literal ;
+	:PName "'Abdullah bin Muhammad bin Asma'"^^xsd:Literal ;
+	:Konia "Abu 'Abdur Rahman"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 231 AH"^^xsd:Literal .
+
+:P30156 a owl:NamedIndividual , :Narrator ;
+	:PId "P30156"^^xsd:Literal ;
+	:PName "'Imran bin Mysrh"^^xsd:Literal ;
+	:Konia "Abu al-Hasan"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 223 AH"^^xsd:Literal .
+
+:P30170 a owl:NamedIndividual , :Narrator ;
+	:PId "P30170"^^xsd:Literal ;
+	:PName "Muhammad bin al-Muthna - al-Zaman"^^xsd:Literal ;
+	:Konia "Abu Musa"^^xsd:Literal ;
+	:BirthYear "~167 AH"^^xsd:Literal ;
+	:DeathYear "252 AH"^^xsd:Literal .
+
+:P30175 a owl:NamedIndividual , :Narrator ;
+	:PId "P30175"^^xsd:Literal ;
+	:PName "Masdad bin Masrhad"^^xsd:Literal ;
+	:Konia "Abu al-Hasan"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 228 AH"^^xsd:Literal .
+
+:P30184 a owl:NamedIndividual , :Narrator ;
+	:PId "P30184"^^xsd:Literal ;
+	:PName "Ahmed bin 'Abdullah"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear "133 AH"^^xsd:Literal ;
+	:DeathYear "227 AH"^^xsd:Literal .
+
+:P30193 a owl:NamedIndividual , :Narrator ;
+	:PId "P30193"^^xsd:Literal ;
+	:PName "Zakaria bin Yahya bin 'Umar"^^xsd:Literal ;
+	:Konia "Abu al-Sakayn"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 251 AH"^^xsd:Literal .
+
+:P30213 a owl:NamedIndividual , :Narrator ;
+	:PId "P30213"^^xsd:Literal ;
+	:PName "Muhammad bin 'Ubaid al-Tanafasi"^^xsd:Literal ;
+	:Konia "Abu 'Abdullah"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 204 AH"^^xsd:Literal .
+
+:P30237 a owl:NamedIndividual , :Narrator ;
+	:PId "P30237"^^xsd:Literal ;
+	:PName "'Amr bin Khalid al-Hirani"^^xsd:Literal ;
+	:Konia "Abu al-Hasan"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 229 AH"^^xsd:Literal .
+
+:P30253 a owl:NamedIndividual , :Narrator ;
+	:PId "P30253"^^xsd:Literal ;
+	:PName "Sa'id bin al-Nadr al-Baghdadi"^^xsd:Literal ;
+	:Konia "Abu 'Uthman"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 234 AH"^^xsd:Literal .
+
+:P30254 a owl:NamedIndividual , :Narrator ;
+	:PId "P30254"^^xsd:Literal ;
+	:PName "Sa'id bin Yahya bin Sa'id bin Aban"^^xsd:Literal ;
+	:Konia "Abu 'Uthman"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 249 AH"^^xsd:Literal .
+
+:P30272 a owl:NamedIndividual , :Narrator ;
+	:PId "P30272"^^xsd:Literal ;
+	:PName "Muhammad bin 'Abdul Rahim bin Abi Zuhayr"^^xsd:Literal ;
+	:Konia "Abu Yahya"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 255 AH"^^xsd:Literal .
+
+:P30277 a owl:NamedIndividual , :Narrator ;
+	:PId "P30277"^^xsd:Literal ;
+	:PName "Mahmud bin Ghaylan"^^xsd:Literal ;
+	:Konia "Abu Ahmed"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 239 AH or after"^^xsd:Literal .
+
+:P30279 a owl:NamedIndividual , :Narrator ;
+	:PId "P30279"^^xsd:Literal ;
+	:PName "Mansur bin Salma bin 'Abdul 'Aziz"^^xsd:Literal ;
+	:Konia "Abu Salma"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 210 AH"^^xsd:Literal .
+
+:P30308 a owl:NamedIndividual , :Narrator ;
+	:PId "P30308"^^xsd:Literal ;
+	:PName "Ibrahim bin al-Mandhir bin 'Abdullah"^^xsd:Literal ;
+	:Konia "Abu Ishaq"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 236 AH"^^xsd:Literal .
+
+:P30330 a owl:NamedIndividual , :Narrator ;
+	:PId "P30330"^^xsd:Literal ;
+	:PName "al-Hakm bin Nafi'"^^xsd:Literal ;
+	:Konia "Abu al-Yaman"^^xsd:Literal ;
+	:BirthYear "~138 AH"^^xsd:Literal ;
+	:DeathYear "~211 AH or 222 AH"^^xsd:Literal .
+
+:P30351 a owl:NamedIndividual , :Narrator ;
+	:PId "P30351"^^xsd:Literal ;
+	:PName "'Abdullah bin Muhammad al-Musandi"^^xsd:Literal ;
+	:Konia "Abu Ja'far"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 229 AH"^^xsd:Literal .
+
+:P30355 a owl:NamedIndividual , :Narrator ;
+	:PId "P30355"^^xsd:Literal ;
+	:PName "'Abdullah bin Yusuf al-Tunaysi"^^xsd:Literal ;
+	:Konia "Abu Muhammad"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 218 AH"^^xsd:Literal .
+
+:P30367 a owl:NamedIndividual , :Narrator ;
+	:PId "P30367"^^xsd:Literal ;
+	:PName "Qutayba bin Sa'id bin Jamil"^^xsd:Literal ;
+	:Konia "Abu Raja'"^^xsd:Literal ;
+	:BirthYear "~150 AH"^^xsd:Literal ;
+	:DeathYear "~240 AH"^^xsd:Literal .
+
+:P30388 a owl:NamedIndividual , :Narrator ;
+	:PId "P30388"^^xsd:Literal ;
+	:PName "Muhammad bin Yusuf al-Baykandi"^^xsd:Literal ;
+	:Konia "Abu Ahmed"^^xsd:Literal ;
+	:BirthYear "Medina"^^xsd:Literal ;
+	:DeathYear ""^^xsd:Literal .
+
+:P30399 a owl:NamedIndividual , :Narrator ;
+	:PId "P30399"^^xsd:Literal ;
+	:PName "Yahya bin Yahya bin Bukayr"^^xsd:Literal ;
+	:Konia "Abu Zakaria"^^xsd:Literal ;
+	:BirthYear "142 AH"^^xsd:Literal ;
+	:DeathYear "226 AH"^^xsd:Literal .
+
+:P30463 a owl:NamedIndividual , :Narrator ;
+	:PId "P30463"^^xsd:Literal ;
+	:PName "Khalid bin Mukhallad al-Qatwani"^^xsd:Literal ;
+	:Konia "Abu al-Haytham"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 213 AH or after"^^xsd:Literal .
+
+:P34207 a owl:NamedIndividual , :Narrator ;
+	:PId "P34207"^^xsd:Literal ;
+	:PName "Muhammad bin Snan bin Yazid"^^xsd:Literal ;
+	:Konia "Abu Bakr"^^xsd:Literal ;
+	:BirthYear ""^^xsd:Literal ;
+	:DeathYear "d. 271 AH"^^xsd:Literal .

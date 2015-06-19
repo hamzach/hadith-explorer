@@ -1,0 +1,50 @@
+#header
+{
+	height: 110px;
+	border: 1px solid;
+}
+#main_div
+{
+	
+	border-color: gray;
+	box-shadow: black;
+	border-bottom: 1px solid;
+	margin-left: 4px;
+	margin-right: 4px;
+	border-color: lightgray;
+	box-shadow: 0 4px 2px -2px gray;
+
+
+
+	/* temporary */
+
+	
+	height: 430px;
+
+}
+#signin
+{
+	height: 70px;
+	padding-top: 41px;
+	width: 90%;
+	border-bottom: 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+	border-color: lightgray;
+}
+#signin_credentials
+{
+	
+	width: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 35px;
+}
+#signin_credentials input
+{
+	width: 100%;
+}
+#signin_credentials button
+{
+	width: 100%;
+}

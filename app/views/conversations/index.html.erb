@@ -1,0 +1,77 @@
+<body>
+	<div class="body relative">
+		<div class="container">
+			<div class="col-lg-4 sidebar-nav lll " id="scrollable">
+				<div id="sidebar-wrapper" class="sidebar-nav">
+			        <ul class="sidebar-nav">
+			        	<h4 class="" style="color:#666;">Scholar's List</h4>
+						<% @scholars.each do |scholar| %>
+			            <li class="sidebar-brand sidebar-list-item scholor">
+			                <%= link_to scholar.firstname, createconversation_path(:target_id => scholar.id)%>
+			            </li>
+			            <% end %>
+			        </ul>
+				</div>
+			</div>
+			<div class="col-lg-9 move-down pull-right " style="top: 175px;">
+				<% if @messages != nil %>
+					<div class="_message"><%= render partial: 'message' %></div>
+					<div class="col-lg-12 reply-box">
+						<div class="row col-lg-12 no-padding">
+							<textarea autofocus id="message_text_area" style="vertical-align:bottom;width:100%;margin-left: 14px; resize: none;"></textarea>
+						</div>
+						<div class="row col-lg-12 no-padding" style="margin-top:20px;argin-left: 0px;">
+							<button id="send-message" class="btn btn-primary" style="margin-left:14px;" >
+							<span class="glyphicon glyphicon-send navbar-icons"></span>
+							Send Message</button>
+						</div>
+						
+					</div>
+				<% else %>
+					<p class="narrators">Please Select Scholar from left panel to start conversation</p>
+				<% end %>
+
+			</div>
+		</div>
+	</div>
+	
+	
+	<script type="text/javascript">
+		$(document).ready(
+	         function() {
+	          setInterval(function() {
+	            $('._message').load('/conversations/refresh');
+	        }, 300000);
+	    });
+		$("#send-message").click(function(e)
+		{
+			var message_text = document.getElementById("message_text_area").value;
+			if($.trim($("#message_text_area").val())){
+				var base = 'sendmessage';
+			$.ajax(
+	        {
+		        type:'get',
+		        url:base,
+		        data:{message:message_text},
+		        success:function(response)
+		        {
+		            //alert(response);
+		            location.reload();
+		        },
+		        error: function()
+		        {
+		    		//alert('Load was performed.');
+		    	}
+     		});
+			document.getElementById("message_text_area").value = "";
+			}
+			
+		});
+	</script>
+	<!-- Latest compiled and minified JavaScript -->
+	
+</body>
+</html>
+
+
+

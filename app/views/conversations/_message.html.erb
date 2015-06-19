@@ -1,0 +1,15 @@
+<div class="row col-lg-12 hadith pull-right messages" >
+	<!-- <h4 class="" style="color:#666;">Conversation</h4> -->
+	<% @messages.each do |message| %>
+		<div class="row col-lg-12 narrators my-message"
+			<% if message.sender_id == session[:user_id] %>
+				style="background-color:lightgrey !important;"
+			<% end %>
+		>
+			<p class="not-catogorized">
+				<%= message.message_text %>
+			</p>
+		</div>
+	<% end %>
+</div>
+

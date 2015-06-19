@@ -1,0 +1,553 @@
+<?xml version="1.0"?>
+	<!DOCTYPE rdf:RDF [
+		<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+		<!ENTITY ontologies "http://protege.org/ontologies/" >
+		<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+		<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+		<!ENTITY Hadith "http://protege.org/ontologies/Hadith.owl#" >
+		<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+	]>
+	<rdf:RDF xmlns="&ontologies;Hadith.owl#" xml:base="&ontologies;Hadith.owl" xmlns:Hadith="&ontologies;Hadith.owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:ontologies="http://protege.org/ontologies/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#">
+		<owl:Ontology rdf:about="&ontologies;Hadith.owl"/>
+		<!--
+		///////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Datatypes
+		//
+		///////////////////////////////////////////////////////////////////////////////////////
+		-->
+		<!-- http://www.w3.org/2000/01/rdf-schema#Literal -->
+		<rdfs:Datatype rdf:about="&rdfs;Literal"/>
+		<!-- http://www.w3.org/2001/XMLSchema#integer -->
+		<rdfs:Datatype rdf:about="&xsd;integer"/>
+		<!--
+		///////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Object Properties
+		//
+		///////////////////////////////////////////////////////////////////////////////////////
+		-->
+		<!-- http://protege.org/ontologies/Hadith.owl#AuthorOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#AuthorOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Author"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Book"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#hasAuthor"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#BedaaHadiths -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#BedaaHadiths">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#BrotherOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#BrotherOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#ChapterOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#ChapterOf">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Book"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Chapter"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#hasChapter"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#ContainerOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#ContainerOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Book"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#hasContainer"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#CousinOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#CousinOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#DaughterHusbandOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#DaughterHusbandOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#FatherOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#FatherOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#GrandFatherOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#GrandFatherOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#hasGrandFather"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#GrandSonOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#GrandSonOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#HadithOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#HadithOf">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Chapter"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#hasHadith"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#HeardFrom -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#HeardFrom">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#TransferTo"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#IkhtelatHadiths -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#IkhtelatHadiths">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#IrsalAbout -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#IrsalAbout">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#MawlaOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#MawlaOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#hasMawla"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#MotherOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#MotherOf">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#NarratorOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#NarratorOf">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#hasNarrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#NephewOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#NephewOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#TransferTo -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#TransferTo">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#UncleOf -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#UncleOf">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#WahemHadiths -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#WahemHadiths">
+			<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasAuthor -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasAuthor">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Author"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Book"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasBrother -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasBrother">
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#BrotherOf"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasChapter -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasChapter">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Book"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Chapter"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasContainer -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasContainer">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Book"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasCousin -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasCousin">
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#CousinOf"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasDaughterHusband -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasDaughterHusband">
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#DaughterHusbandOf"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasFather -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasFather">
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#FatherOf"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasGrandFather -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasGrandFather">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasGrandSon -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasGrandSon">
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#GrandSonOf"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasHadith -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasHadith">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Chapter"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasMawla -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasMawla">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasMother -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasMother">
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#MotherOf"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasNarrator -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasNarrator">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasNephew -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasNephew">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#NephewOf"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasUncle -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasUncle">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<owl:inverseOf rdf:resource="&ontologies;Hadith.owl#UncleOf"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#notHeardFrom -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#notHeardFrom">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+		</owl:ObjectProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasCategory -->
+		<owl:ObjectProperty rdf:about="&ontologies;Hadith.owl#hasCategory">
+			<rdfs:range rdf:resource="&ontologies;Hadith.owl#Category"/>
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Literal"/>
+		</owl:ObjectProperty>
+		<!--
+		///////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Data properties
+		//
+		///////////////////////////////////////////////////////////////////////////////////////
+		-->
+		<!-- http://protege.org/ontologies/Hadith.owl#AttributedToGrandfather -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#AttributedToGrandfather">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#BirthYear -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#BirthYear">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Content -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Content">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#DeathYear -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#DeathYear">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+			<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#DenotedBy -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#DenotedBy">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#FatherName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#FatherName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#FatherNickName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#FatherNickName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#FifthName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#FifthName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#FifthNickName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#FifthNickName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#FirstName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#FirstName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#FourthName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#FourthName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#FourthNickName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#FourthNickName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Gender -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Gender">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#GrandFatherName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#GrandFatherName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+			<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#GrandFatherNickName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#GrandFatherNickName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+			<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Id -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Id">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Konia -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Konia">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#LiveIn -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#LiveIn">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Luqab -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Luqab">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Name -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Name">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Nasab -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Nasab">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#NazeelOf -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#NazeelOf">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#NickName -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#NickName">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#NoOfPages -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#NoOfPages">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Book"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#OriginallyFrom -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#OriginallyFrom">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Rotba -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Rotba">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+			<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Tabaqa -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Tabaqa">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Tadlees -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Tadlees">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Title -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Title">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Topic -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Topic">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#Who -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#Who">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Person"/>
+			<rdfs:range rdf:resource="&rdfs;Literal"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#YearOfPublication -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#YearOfPublication">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Book"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasBedaa -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#hasBedaa">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+			<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasIkthelat -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#hasIkthelat">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+			<rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasIrsal -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#hasIrsal">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+		</owl:DatatypeProperty>
+		<!-- http://protege.org/ontologies/Hadith.owl#hasWahem -->
+		<owl:DatatypeProperty rdf:about="&ontologies;Hadith.owl#hasWahem">
+			<rdfs:domain rdf:resource="&ontologies;Hadith.owl#Narrator"/>
+			<rdfs:range rdf:resource="&xsd;integer"/>
+		</owl:DatatypeProperty>
+		<!--
+		///////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Classes
+		//
+		///////////////////////////////////////////////////////////////////////////////////////
+		-->
+		<!-- http://protege.org/ontologies/Hadith.owl#Author -->
+		<owl:Class rdf:about="&ontologies;Hadith.owl#Author">
+			<rdfs:subClassOf rdf:resource="&ontologies;Hadith.owl#Person"/>
+		</owl:Class>
+		<!-- http://protege.org/ontologies/Hadith.owl#Book -->
+		<owl:Class rdf:about="&ontologies;Hadith.owl#Book"/>
+		<!-- http://protege.org/ontologies/Hadith.owl#Chapter -->
+		<owl:Class rdf:about="&ontologies;Hadith.owl#Chapter"/>
+		<!-- http://protege.org/ontologies/Hadith.owl#Hadith -->
+		<owl:Class rdf:about="&ontologies;Hadith.owl#Hadith"/>
+		<!-- http://protege.org/ontologies/Hadith.owl#Category -->
+		<owl:Class rdf:about="&ontologies;Hadith.owl#Category"/>
+		<!-- http://protege.org/ontologies/Hadith.owl#Narrator -->
+		<owl:Class rdf:about="&ontologies;Hadith.owl#Narrator">
+			<rdfs:subClassOf rdf:resource="&ontologies;Hadith.owl#Person"/>
+		</owl:Class>
+		<!-- http://protege.org/ontologies/Hadith.owl#Person -->
+		<owl:Class rdf:about="&ontologies;Hadith.owl#Person"/>
+		<!--
+		///////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Individuals
+		//
+		///////////////////////////////////////////////////////////////////////////////////////
+		-->
+		<!-- http://protege.org/ontologies/Hadith.owl#141 -->
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#141">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				Should it so happen that we come into contact with one of the Companions of the Messenger of Allah (peace be upon him) we shall ask him about what is talked about taqdir (Divine Decree). Accidentally we came across Abdullah ibn Umar ibn al-Khattab, while he was entering the mosque. My companion and I surrounded him. One of us (stood) on his right and the other stood on his left. I expected that my companion would authorize me to speak. I therefore said: Abu Abdur Rahman! There have appeared some people in our land who recite the Qur'an and pursue knowledge. And then after talking about their affairs, added: They (such people) claim that there is no such thing as Divine Decree and events are not predestined. He (Abdullah ibn Umar) said: When you happen to meet such people tell them that I have nothing to do with them and they have nothing to do with me. And verily they are in no way responsible for my (belief). Abdullah ibn Umar swore by Him (the Lord) (and said): If any one of them (who does not believe in the Divine Decree) had with him gold equal to the bulk of (the mountain) Uhud and spent it (in the way of Allah), Allah would not accept it unless he affirmed his faith in Divine Decree. He further said: My father, Umar ibn al-Khattab, told me: One day we were sitting in the company of Allah's Apostle (peace be upon him) when there appeared before us a man dressed in pure white clothes, his hair extraordinarily black. There were no signs of travel on him. None amongst us recognized him. At last he sat with the Apostle (peace be upon him) He knelt before him placed his palms on his thighs and said: Muhammad, inform me about al-Islam. The Messenger of Allah (peace be upon him) said: Al-Islam implies that you testify that there is no god but Allah and that Muhammad is the messenger of Allah, and you establish prayer, pay Zakat, observe the fast of Ramadan, and perform pilgrimage to the (House) if you are solvent enough (to bear the expense of) the journey. He (the inquirer) said: You have told the truth. He (Umar ibn al-Khattab) said: It amazed us that he would put the question and then he would himself verify the truth. He (the inquirer) said: Inform me about Iman (faith). He (the Holy Prophet) replied: That you affirm your faith in Allah, in His angels, in His Books, in His Apostles, in the Day of Judgment, and you affirm your faith in the Divine Decree about good and evil. He (the inquirer) said: You have told the truth. He (the inquirer) again said: Inform me about al-Ihsan (performance of good deeds). He (the Holy Prophet) said: That you worship Allah as if you are seeing Him, for though you don't see Him, He, verily, sees you. He (the enquirer) again said: Inform me about the hour (of the Doom). He (the Holy Prophet) remarked: One who is asked knows no more than the one who is inquiring (about it). He (the inquirer) said: Tell me some of its indications. He (the Holy Prophet) said: That the slave-girl will give birth to her mistress and master, that you will find barefooted, destitute goat-herds vying with one another in the construction of magnificent buildings. He (the narrator, Umar ibn al-Khattab) said: Then he (the inquirer) went on his way but I stayed with him (the Holy Prophet) for a long while. He then, said to me: Umar, do you know who this inquirer was? I replied: Allah and His Apostle knows best. He (the Holy Prophet) remarked: He was Gabriel (the angel). He came to you in order to instruct you in matters of religion.
+			</Content>
+			<Topic>The Book of Faith</Topic>
+			<hasCategory></hasCategory>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#142">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				I and Humaid b. Abdur-Rahman Himyari argued. And they carried on the conversation about the purport of the hadith related by Kahmas and its chain of transmission too, and there is some variation of words.
+			</Content>
+			<Topic>The Book of Faith</Topic>
+			<hasCategory></hasCategory>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#143">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				We met Abdullah b. 'Umar and we discussed about the Divine Decree, and what they talked about it and he narrated the hadith that has been transmitted by 'Umar (may Allah be pleased with him) from the Apostle (SAW). There is a slight variation in that.
+			</Content>
+			<Topic>The Book of Faith</Topic>
+			<hasCategory></hasCategory>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#144">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				One day the Messenger of Allah (SAW) appeared before the public that a man came to him and said: Prophet of Allah, (tell me) what is Iman. Upon this he (the Holy Prophet) replied: That you affirm your faith in Allah, His angels, His Books, His meeting, His Messengers and that you affirm your faith in the Resurrection hereafter. He (again) said: Messenger of Allah, (tell me) what does al-Islam signify. He (the Holy Prophet) replied: Al-Islam signifies that you worship Allah and do not associate anything with Him and you establish obligatory prayer and you pay the obligatory poor-rate (Zakat) and you observe the fast of Ramadan. He (the inquirer) again said: Messenger of Allah, what does al-Ihsan imply? He (the Holy Prophet) replied: That you worship Allah as if you are seeing Him, and in case you fail to see Him, then observe prayer (with this idea in your mind) that (at least) He is seeing you. He (the inquirer ) again said: Messenger of Allah, when would there be the hour (of Doom)? He (the Holy Prophet) replied: The one who is asked about it is no better informed than the inquirer. I, however, narrate some of its signs (and these are): when the slave-girl will give birth to he master, when the naked, barefooted would become the chiefs of the people - these are some of the signs of (Doom). (Moreover) when the shepherds of the black (camels) would exult themselves in buildings, this is one of the signs of (Doom). (Doom) is one of the five (happenings wrapped in the unseen) which no one knows but Allah. Then he (the Messenger of Allah) recited (the verse):" Verily Allah! with Him alone is the knowledge of the hour and He it is Who sends (down the rain) and knows that which is in the wombs and no person knows whatsoever he shall earn tomorrow, and a person knows not in whatsoever land he shall die. Verily Allah is Knowing, Aware. He (the narrator, Abu Huraira) said: Then the person turned back and went away. The Messenger of Allah (ﷺ) said: Bring that man back to me. They (the Companions of the Prophet present there) went to bring him back, but they saw nothing there. Upon this the Messenger of Allah remarked: he was Gabriel, who came to teach the people their religion.
+			</Content>
+			<Topic>The Book of Faith</Topic>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#145">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				This hadith is narrated to us on the authority of Muhammad b. 'Abdullah b. Numair, on the authority of Muhammad b. Bishr, on the authority of Abd Hayyan al-Taymi with the exception that in this narration (instead of the words (Iza Waladat al'amah rabbaha), the words are (Iza Waladat al'amah Ba'laha), i, e, when slave-girl gives birth to her master.
+			</Content>
+			<Topic>The Book of Faith</Topic>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#145">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				The Messenger of Allah (SAW) said: Cleanliness is half of faith and al-Hamdu Liliah (Praise be to Allah) fills the scale, and Subhan Allah (Glory be to Allah) and al-Hamdu Liliah (Praise be to Allah) fill upwhat is between the heavens and the earth, and prayer is a light, and charity is proof (of one's faith) and endurance is a brightness and the Holy Qur'an is a proof on your behalf or against you. All men go out early in the morning and sell themselves, thereby setting themselves free or destroying themselves.
+			</Content>
+			<Topic>The Book of Purification</Topic>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#145">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				'" 'Abdullah bin 'Umar came to visit Ibn 'Amir when he was sick and he said: 'Won't you supplicate to Allah for me, O Ibn 'Umar ?' He said: 'I heard the Messenger of Allah (SAW) say: "No Salat is accepted without Wudu' (purification), and no charity (is accepted) that comes from Ghulul [1] " and you were the governor of Al-Basrah.' " [1] Goods pilfered from the spoils of war prior to their authorized distribution.
+			</Content>
+			<Topic>The Book of Purification</Topic>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#145">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				A hadith like this is narrated from the Apostle (SAW) with the same chain of transmitters by Muhammad b. Muthanna, Ibn Bashshar, Muhammad b. Ja'far, Shu'ba.
+			</Content>
+			<Topic>The Book of Purification</Topic>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#145">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				When anyone amongst us (amongst the wives of the Holy Prophet) menstruated, the Messenger of Allah (ﷺ) asked her to tie a waist-wrapper over her (body) and then embraced her.
+			</Content>
+			<Topic>The Book of Menstruation</Topic>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#145">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				When anyone amongst us was menstruating the Messenger of Allah (SAW) asked her to tie waist-wrapper daring the time when the menstrual blood profusely flowed and then embraced her; and she ('A'isha) observed: And who amongst you can have control over his desires as the Messenger of Allah (SAW) had over his desires.
+			</Content>
+			<Topic>The Book of Menstruation</Topic>
+		</owl:NamedIndividual>
+
+		<owl:NamedIndividual rdf:about="&ontologies;Hadith.owl#145">
+			<rdf:type rdf:resource="&ontologies;Hadith.owl#Hadith"/>
+			<Content>
+				The Messenger of Allah (SAW) contacted and embraced his wives over the waist-wrapper when they were menstruating.
+			</Content>
+			<Topic>The Book of Menstruation</Topic>
+		</owl:NamedIndividual>
+	</rdf:RDF>

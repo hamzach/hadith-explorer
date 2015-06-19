@@ -1,0 +1,72 @@
+body{margin:0px;font-family: Calibri;}
+#outer_wrapper{width:100%;min-width:700px;margin-bottom:350px;}
+#square_header{width:99.3%; min-width:700px; border: 4px solid #006E98;height:595px;text-align: center;background: url('view_of_ocean_from_the_rock-wallpaper-2560x1440.jpg') ; background-repeat: no-repeat;background-size:100% 100%;}
+#square_menu{width:700px;text-align: center;display: inline-block;}
+#square_menu ul{width:600px;text-align: center;margin-top:30px;padding-left:90px;list-style-type: none;overflow:hidden;}
+#square_menu ul li{display:inline-block;margin:15px 10px 10px 10px;float:left;}
+#square_menu ul li div label{display: table-cell;vertical-align: middle;width:150px;height:150px;cursor:pointer;}
+#square_menu ul li .selected{color:black;background:white; }
+
+#op_5{background-color: white;width:172px; border:none;background: url('');background-repeat: no-repeat;}
+#square_menu ul li:nth-child(5){margin:0px;margin-top:7px;width:172px;}
+#op_6{background:#A6CE39;border:1px solid #7C9D26;background:url('15ft Essa Boat.JPG') no-repeat;background-size: 150px 150px;border:0px;}
+#op_4{background:url('Picture 60 FT Trawler.jpg') no-repeat;background-size: 150px 150px;border:0px;}
+#op_4:hover{background:url('4 trawlers.JPG') no-repeat;background-size: 150px 150px;border:0px;}
+#op_6:hover{background:url('29 ft speed boat.JPG') no-repeat;background-size: 150px 150px;border:0px;}
+#op_1:hover{color:black;background:white;}
+.section1,.section2{width:50%;display:inline-block;}
+.section1{text-align:justify;border-top: 1px solid rgb(235, 193, 135);}
+.pull-right{float:right;}
+.skin{color:rgb(235, 193, 135);}
+.italic{font-style: italic;}
+.second-heading{margin-left: 18%;font-weight: normal;margin-top:0px;margin-bottom:7px;}
+.first-heading{margin-left: 20%;margin-bottom: 0px;}
+/** classes*/
+.square_option{ height:150px;width:150px;border-radius: 5px;background-color: #006E98;color:white;transition: background-color 0.25s ease,color 1s ease;-webkit-transition: background-color 0.25s ease,color 1s ease;-moz-transition: background-color 0.25s ease,color 1s ease;}
+.square_option:hover{background-color:#ffffff;color:#000;}
+.options_header{font-size:14px;height:70px;box-shadow: 0px 2px 1px lightgray;overflow:hidden;}
+.options_header .options{float:right;height:70px;overflow: hidden;margin-right: 20px;}
+.options_header .options .selected{border-bottom:5px solid rgb(235, 193, 135);}
+.options_header ul{height:70px;margin-top:0px;}
+.options_header li{display: inline-block;height:67px;margin-left: -3.5px;cursor:pointer;}
+.options_header li label{padding-left:10px;line-height:5;padding-right:10px;color:#4d4d4d;height:70px;border-right:1px dotted gray;cursor:pointer;}
+.options_header li:last-child label{border-right:none;}
+.options_header .logo{width:190px;height:100%;display: inline-block;}
+.content_section{padding-left:25px;padding-right:20px;margin-top:30px;min-height:200px;font-family: CENTURY GOTHIC;}
+.content_section h1{height: 40px;font-size:24px;font-weight: normal;}
+.content_section h2{font-size: 15px;font-weight: bold;margin-right:10px;display: inline-block;margin-top: 0px;color: #54C9F4;}
+.help{font-size:10.5px;}
+.logo{background: url('');background-repeat: no-repeat;margin-left:30px;margin-top:7px;}
+
+/*input fields styling*/
+.input_fields_list{padding-left: 0px;overflow: hidden;margin-left:-30px;}
+.input_fields_list li{display: inline-block;float: left; margin-bottom:30px;margin-left: 30px}
+.input_fields_list li.long{width:97.3%;}
+.input_fields_list li.long .input_box{width:100%;}
+.input_box {width: 343px;height:38px;padding-left:10px;color:#a8a8a8;border: 1px solid lightgray;}
+.input_box:focus{outline:none;border:1px solid lightgray;}
+
+/*table*/
+.table{width:100%;table-layout: fixed; outline:1px solid lightgray}
+.table thead tr{background:#ededed;color:#2a2a2a;text-align: center;height:35px;}
+.table thead td{border: 1px solid white;}
+.table tbody td{border-top:1px solid lightgray;border-right:1px solid lightgray;height:35px;}
+.table tbody td.last{border-right:none;}
+
+.submit_button{margin: 0px auto;display: block;margin-top: 40px;width: 135px;height: 37px;border: 1px solid black;
+border-radius: 5px;color: white;font-size: 15px;background: #4D4D4D;cursor:pointer;}
+.submit_button:focus{outline:none;border:1px solid black;}
+.done{width:100%;text-align: center;}
+.hidden{display:none;}
+/*select button styling*/
+select::-ms-expand {
+    display: none;
+}
+.css-select {
+-webkit-appearance: none;-moz-appearance: none;appearance: none; -moz-appearance:window; background-image: url('dropdown.png');
+background-repeat: no-repeat;background-position:center;background-position-x:317px;padding-right: 20px;
+}
+@-moz-document url-prefix() {
+	.css-select {background-image:none;padding-top:8px;}
+	.css-select-moz{-webkit-appearance: none;background-image: url('dropdown.png');background-position:center;background-repeat: no-repeat;background-position-x:317px;}
+} 

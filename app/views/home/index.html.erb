@@ -1,0 +1,518 @@
+<div class="col-lg-12 move-down pos advc-search" style="display:inline-flex">
+		<div class="row col-lg-12">
+			<div class="col-lg-10" style="display: -webkit-inline-box;">
+				<div class="col-lg-12 pull-right" style="margin-top: 10px;">
+					<div class="col-md-3" style="display: inline-flex">
+						<input id="bookId" type="text" class="form-control p-top" placeholder="BOOK">
+					</div>
+					<div class="col-md-3" style="display: inline-flex">
+						<input id="narratorId" type="text" class="form-control p-top" placeholder="NARRATOR">
+					</div>
+					<div class="col-md-3" style="display: inline-flex">
+						<input id="topicId" type="text" class="form-control p-top" placeholder="TOPIC">
+					</div>
+					<div class="col-md-3" style="display: inline-flex">
+						<input id="categoryId" type="text" class="form-control p-top" placeholder="CATEGORY">
+					</div>
+				</div>
+				<div class="row col-lg-2" style="margin-top: 10px">
+					<input id="aSearch" type="submit" value="Advance Search" class="form-control">
+				</div>
+		`	</div>
+		</div>
+		<div class="pull-right adv-button">
+			<i id="advc-icon" class="glyphicon glyphicon-search pull-right" style="color:#999; font-size: 20px; margin-top: 16px; margin-right: 15px; visibility:visible"></i>		
+		</div>
+	</div>
+<body>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div id="soe" style="width:100%;height:10%">
+			
+		</div>
+		<div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		       	<h4 class="modal-title" id="myModalLabel" style="display:inline-block;">LOADING</h4>&nbsp&nbsp&nbsp
+		       	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+			    <rect x="0" y="0" width="4" height="10" fill="#333" transform="translate(0 6.46571)">
+			      <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0" begin="0" dur="0.6s" repeatCount="indefinite"></animateTransform>
+			    </rect>
+			    <rect x="10" y="0" width="4" height="10" fill="#333" transform="translate(0 6.86762)">
+			      <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0" begin="0.2s" dur="0.6s" repeatCount="indefinite"></animateTransform>
+			    </rect>
+			    <rect x="20" y="0" width="4" height="10" fill="#333" transform="translate(0 19.799)">
+			      <animateTransform attributeType="xml" attributeName="transform" type="translate" values="0 0; 0 20; 0 0" begin="0.4s" dur="0.6s" repeatCount="indefinite"></animateTransform>
+			    </rect>
+			  </svg>
+		      </div>
+		      <div class="modal-body">
+		        <p>Please wait while the content loads</p>
+		      </div>
+		      <div class="modal-footer">
+		        
+		      </div>
+		    </div>
+  		</div>
+	</div>
+    <div class="modal fade" id="hadithModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div id="soe" style="width:100%;height:10%"></div>
+		<div class="modal-dialog">
+		    <div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel" style="display:inline-block;"></h4>
+			</div>
+
+			<div class="modal-body">
+		      	<div class="modal-narrators"></div>
+		        <div class="panel-group categories" id="accordion">
+		        	<div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h4 class="panel-title">
+			                    <a data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="true" class="">Categories</a>
+			                </h4>
+			            </div>
+		            	<div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true">
+		                	<div class="panel-body">
+				                <div class="col-lg-12">
+				                	<h5><u>A-E</u></h5>
+				                </div>
+			                	<div class="col-lg-12">
+			                		<div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Ahad
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Ahad">
+				                    	</div>
+			                    	</div>
+			                    	<div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Aziz
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Aziz">
+				                    	</div>
+			                    	</div>
+				                    <div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Daif
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Daif">
+				                    	</div>
+				                    </div>
+				                </div>
+			                    <div class="col-lg-12">
+			                    	<h5><u>F-J</u></h5>
+			                    </div>
+			                    <div class="col-lg-12">
+				                	<div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Gharib
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Gharib">
+				                    	</div>
+				                    </div>
+				                    <div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Hasan
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Hasan">
+				                    	</div>
+				                    </div>
+				                </div>
+				                <div class="col-lg-12">
+		                    		<h5><u>K-R</u></h5>
+			                    </div>
+			                    <div class="col-lg-12">
+				                	<div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Marfu
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Marfu">
+				                    	</div>
+				                    </div>
+				                    <div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Mauquf
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Mauquf">
+				                    	</div>
+				                    </div>
+				                    <div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Maqtu
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Maqtu">
+				                    	</div>
+				                    </div>
+				                    <div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Mursal
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Mursal">
+				                    	</div>
+				                    </div>
+				                    <div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Mash'hoor
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Mash'hoor">
+				                    	</div>
+				                    </div>
+			                	</div>
+				                <div class="col-lg-12">
+		                    		<h5><u>S-Z</u></h5>
+		                    	</div>
+			                    <div class="col-lg-12">
+				                	<div class="row col-lg-4">
+				                    	<div class="row col-lg-5 category-name no-padding-right">
+				                    		<label>
+				                    			Sahih
+				                    		</label>
+				                    	</div>
+				                    	<div class="row col-lg-5 category-box no-padding-left">
+				                    		<input type="checkbox" value="Sahih">
+				                    	</div>
+				                    </div>
+			                	</div>
+			            	</div><!--panel body-->
+		        		</div>
+		    		</div>
+	    		</div>
+    		</div>
+		    <div class="modal-matan" style="margin-left:18px;width: 97.5%;"></div>
+			<div class="row col-lg-12 controls no-padding">
+				<div class="col-lg-6 controls">
+					<button type="submit" id="save_category" class="btn btn-primary save-category" style="width:90%">
+						<span class="glyphicon glyphicon-save" aria-hidden="true"></span>&nbsp;&nbsp;Save category
+					</button>
+				</div>
+			</div>
+			<div class="col-lg-12"></div>
+			<div class="row col-lg-12 controls buttons"></div>
+	      	<div class="hadith-modal-footer"></div>
+		</div>
+	</div>
+</div>
+<!--header finishes here-->
+
+<!--body starts here-->
+<div class="body relative">
+	<div class="container">
+		<div class="col-lg-4 sidebar-nav lll " id="scrollable">
+			<div>
+				<input type="text" class="categoriesSearch" style="margin-bottom:10px;border:0px;border-bottom: 1px solid rgba(128, 128, 128, 0.67);
+				border-radius: 0px;padding-left:7px;color:#999;outline:none;width: 86%;" placeholder="SEARCH CATEGORIES">
+           		<i class="glyphicon glyphicon-search" style="color:#999"></i>
+			</div>
+		    <div id="sidebar-wrapper" class="sidebar-nav">
+	            <ul class="sidebar-nav">
+	            	<li class="sidebar-brand sidebar-list-item">
+	                    <a href="/home/category/All">All</a>
+	                </li>
+	            	<% @hadiths_chapters.each { |chapter| %>
+		                <li class="sidebar-brand sidebar-list-item">
+							<a href="/home/category/<%= chapter['ChapterName'].to_s %>"><%= chapter['ChapterName']%></a>
+		                </li>
+	            	<% } %>
+	            </ul>
+    		</div>
+		</div>
+		<!--navigation bar finishes here-->
+		
+		<!--main content starts here-->
+		<div id="mainContent" class="col-lg-9 move-down pull-right" style="top:159px;">
+			<% @hadiths.each { |hadith| %>
+			<div class="row col-lg-12 hadith pull-right">
+				<div class="category-wrapper pull-right">
+					<div class="category pull-right">
+						<div class="col-lg-12 pull-right ">
+							<a href="#" class="pull-right some"><%= hadith['topic'] %></a>
+						</div>
+					</div>
+				</div>
+				<div class="row col-lg-12 narrators">
+					<% hadith['narrators'].each_with_index do |narrator, index| %>
+						<span><a href="" style="color:black;"><%= narrator %></a>&nbsp
+							<% if index != hadith.size-1 %>
+								<span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+							<% end %>
+						</span>
+					<% end %>
+				</div>
+				<div class="row col-lg-12 narrators">
+					<div id="<%= hadith['id']%>_categories_container">
+						<% if hadith['categories'].any? %>
+							<% hadith['categories'].each do |category| %>
+								<p class="row col-lg-2" style="display:inline-flex;"><%= category %></p>
+							<% end %>
+						<% else %>
+							The hadith is yet to be categorized.
+						<% end %>
+					</div>
+				</div>
+
+				<div class="row col-lg-12 no-padding"></div>
+				<div class="row col-lg-12 matan no-padding">
+					<p href=""><%= hadith['matan'] %></p>
+				</div>
+				<% if current_user %>
+					<div class="row col-lg-12 controls no-padding">
+						<div class="col-lg-3 controls no-padding">
+						<% if @HadithId.include?(hadith['id']) %>
+							<button type="submit" id="lk" class="btn btn-primary add-collection active-button" style="width:95%" value= "<%= hadith['id'] %>" >
+								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp&nbspRemove from collection
+							</button>
+						<% else %>
+							<button type="submit" id="lk" class="btn btn-primary add-collection" style="width:95%" value= "<%= hadith['id'] %>" >
+								<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp&nbspAdd to my collection
+							</button>
+						<% end %>
+						</div>
+						<% if session[:user_type] == "scholar" %>
+							<div class="col-lg-2 controls no-padding">
+							<button type="button" id="lk" class="btn btn-primary editCategory" style="width:106%" value= "<%= hadith['id'] %>">
+								
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp&nbspEdit Category
+							</button>
+						</div>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+			<% } %>
+		</div>
+	</div><!--main content end -->
+</div>
+	
+	<script type="text/javascript">
+	var callbackvar = 0;
+		$(document).ready(function(){//$().toastmessage('showSuccessToast', "some message here");
+			
+			$(".add-collection").click(function(e)
+			{
+				var btnText = $(e.target).text();
+				var base = 'addcollection';
+				var id = $(e.target).attr("value");
+				
+				if(btnText.trim() == "Add to my collection")
+				{
+					$(e.target).html("<span class='glyphicon glyphicon-heart' aria-hidden='true'></span>&nbsp&nbspRemove from collection");
+					
+					$(e.target).addClass("active-button");
+					$().toastmessage('showSuccessToast', "Hadith added to my collection.");
+				}
+				else
+				{
+					$(e.target).html("<span class='glyphicon glyphicon-heart' aria-hidden='true'></span>&nbsp&nbspAdd to my collection");
+					
+					$(e.target).removeClass("active-button");
+					$().toastmessage('showSuccessToast', "Hadith remove from my collection.");
+				}
+
+				$.ajax(
+		        {
+			        type:'get',
+			        url:base,
+			        data:{hadith_id:id, button_text:btnText},
+			        success:function(response)
+			        {
+			            //alert(response);
+			        },
+			        error: function()
+			        {
+			        	alert('Load was performed.');
+			    	}
+	     		});
+
+			});
+
+			$(".save-category").click(function(e){
+				if(callbackvar)
+				{
+					$(".not-catogorized").hide();
+					$(".categorized").removeClass("hidden");
+				}
+
+				selected = new Array();
+				$(".categories input[type='checkbox']:checked").each(function(e)
+				{
+					selected.push($(this).val().toString());
+    			});
+
+				var base = 'addcategory';
+				var id = $(".hadith_id").text();
+				// alert(selected);
+				$.ajax(
+		        {
+			        type:'get',
+			        url:base,
+			        data:{hadith_id:id, categories:selected},
+			        success:function(response)
+			        {
+			        	alert(response);
+			        	if(selected.length > 0)
+			        	{
+			        		html = "";
+			        		for (var i = 0; i < selected.length; i++) 
+			        		{
+			        			html += "<p class=\"row col-lg-2\" style=\"display:inline-flex;\">"+selected[i]+"</p>";
+			        		};
+			        		
+			        		$("#"+id+"_categories_container").html(html);
+			        		
+			        		$(".categories input[type='checkbox']:checked").each(function(e)
+							{
+								$(this).prop('checked', false);
+			    			});
+			        	}
+			        	else
+			        	{
+			        		$("#"+id+"_categories_container").html("The hadith is yet to be categorized.");
+			        	}
+			        },
+			        error: function(e)
+			        {
+			        	$("#hadithModal").html(JSON.stringify(e, null, 4).toString());
+			    	}
+	     		});
+	     		$(e.target).html("<span class='glyphicon glyphicon-saved' aria-hidden='true'></span>&nbsp&nbspCategory Saved");
+				$(e.target).addClass("active-button");
+
+				$().toastmessage('showSuccessToast', "Category saved.");
+			});
+
+			$(".active-button").hover(function(e){
+
+
+			});
+
+			$(".glyphicon-search").on("click" ,function(){
+				//$('.sidebar-nav').scrollTop($('.sidebar-nav')[0].scrollHeight);
+				
+               //$('.lll').offsetTop = "10px";
+                $(".sidebar-nav").scrollTop(10);
+
+			});
+            $(".editCategory").click(function(e){
+            	var id = $(e.target).attr("value");
+            	if(e.target.id=="forTest"){
+            		callbackvar = 1;
+            	}else {
+            		callbackvar = 0;
+            	}
+            	
+            	$(".modal-narrators").html($(e.target).closest(".hadith").find(".narrators").html());
+            	$(".modal-matan").html($(e.target).closest(".hadith").find(".matan").html()+"<span class = 'hidden hadith_id'>"+id+"</span>");
+            	//($($(e.target).closest(".hadith").find(".narrators").html())).insertBefore($($(".hadithModal").find(".categories")));
+                //$(".hadith-modal-footer").html($(".editCategory").closest(".hadith").html());
+                $('#hadithModal').modal('show');
+            });
+
+            $('#hadithModal').on('hidden.bs.modal', function () 
+            {
+            	$("#save_category").html("<span class='glyphicon glyphicon-save' aria-hidden='true'></span>&nbsp&nbspSave Category");
+				$("#save_category").removeClass("active-button");
+			});
+
+			$(".lll ").mCustomScrollbar({
+  				theme:"minimal-dark"
+			});
+			 
+			NProgress.configure({
+			  template: '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>',
+			  parent: "#soe",
+			  showSpinner: false
+			});
+			$("body").addClass(".disabled");
+			$('#myModal').modal({
+			  backdrop: 'static',
+			  keyboard: false
+			});
+        
+			$('#myModal').modal('show');
+			NProgress.start();
+			function some(){ 
+				$(".bar").toggleClass("black-shadow-line");
+				setTimeout(some, 2500);
+			};
+			some();
+
+		});
+		$(window).load(function(){
+			setTimeout(function(){ 
+
+			NProgress.done();
+			$("body").removeClass(".disabled");
+			$('#myModal').modal('hide');
+ }, 0);
+					});
+
+
+		$("#advc-icon").click(function(e)
+		{
+			var visibility = $(".advc-search").css('visibility');
+			if(visibility == 'visible')
+			{
+				$(".advc-search").css('visibility', 'hidden');
+			}
+			else
+			{
+				$(".advc-search").css('visibility', 'visible');	
+			}
+		});
+
+		$("#aSearch").click(function(e)
+		{
+			var book = $("#bookId").val().toString();
+			var narrator = $("#narratorId").val().toString();
+			var topic = $("#topicId").val().toString();
+			var category = $("#categoryId").val().toString();
+			
+			var base = 'advanceSearch'
+			$.ajax(
+	        {
+		        type:'get',
+		        url:base,
+		        data:{bookText:book, narratorText:narrator, topicText:topic, categoryText:category},
+		        dataType:'json',
+		        success:function(response)
+		        {
+		        	$("#mainContent").html(response);
+		        },
+		        error: function(e)
+		        {
+		     	  alert(JSON.stringify(e, null, 4).toString());
+		    	}
+     		});
+		});
+	</script>
+</body>

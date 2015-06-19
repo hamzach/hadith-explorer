@@ -1,0 +1,154 @@
+<!--
+<div style="padding-top:200px; padding-left:50px;">
+	<h1>Editing user</h1>
+	<p>Hello to the future!</p>
+	<%= render 'form' %>
+
+	<%= link_to 'Show', @user %> |
+	<%= link_to 'Back', users_path %>
+</div>-->
+<script type="text/javascript">
+	$(document).ready(function ($) {
+
+     $('#myPassword').strength();
+
+});
+</script>
+<div class="container">
+	
+<div class="row move-down" style="
+    color:#333;position:relative; 
+">
+		<div class="col-lg-12" style="border-bottom: 1px solid rgb(184, 184, 184);">
+			
+			<div class="row col-lg-12 heading" style="
+    
+">
+				<span>
+					<h3 style="color: #5B5B5B;font: 19px/1.4 &quot;Lucida Grande&quot;,&quot;Lucida Sans Unicode&quot;,&quot;Lucida Sans&quot;,Garuda,Verdana,Tahoma,sans-serif;">Edit Profile</h3>
+				</span>
+			</div>
+			
+		</div>
+		<%= form_for(@user) do |f| %>
+		<div class="row col-lg-12 container">
+			
+			<div class="row col-lg-12 " style="margin-top:20px;">
+
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4 fields">
+						<div class="col-lg-6">
+						<div class="">
+							 	<label>First Name</label>
+							</div>
+							<div>
+								<!--<input type="text" class="form-control" placeholder="First Name">-->
+								<%= f.text_field :firstname, class: "form-control"%>
+							</div>	
+						</div>
+						
+						
+					
+					<div class="col-lg-6">
+						<div>
+							<div>
+								<label>Last Name</label>
+							</div>
+							<div>
+								<!--<input type="text" placeholder="Last Name" class="form-control">-->
+								<%= f.text_field :lastname, class: "form-control"%>
+							</div>	
+						</div>
+						
+					</div>
+				</div>
+				
+				</div>
+			
+					<div class="row col-lg-12 fields">
+					<div class="col-lg-4"></div>
+					<div class="col-lg-4">
+						
+						<div class="col-lg-12">
+							<div class="">
+							 	<label>Email</label>
+							</div>
+							<div>
+								<!--<input type="email" placeholder="Email" class="form-control">-->
+								<%= f.email_field :email, class: "form-control"%>
+							</div>	
+						</div>	
+						</div>
+					</div>
+					<div class="row col-lg-12 fields">
+					<div class="col-lg-4"></div>
+					<div class="col-lg-4">
+						
+						<div class="col-lg-12">
+							<div class="">
+							 	<label>Current Password</label>
+							</div>
+							<div>
+								<input type="password" placeholder="Current Password" class="form-control" name="currentpassword">
+								
+							</div>	
+						</div>	
+						</div>
+					</div>
+
+					<div class="row col-lg-12 " style="margin-top:20px;">
+
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4 fields">
+						<div class="col-lg-6">
+						<div class="">
+							 	<label>New Password</label>
+							</div>
+							<div>
+								<!--<input id="myPassword" type="password" class="form-control" placeholder="New Password">-->
+								<%= f.password_field :password, class: 'form-control', :id => 'myPassword' %>
+							</div>	
+						</div>
+						
+						
+					
+					<div class="col-lg-6">
+						<div>
+							<div>
+								<label>Retype Password</label>
+							</div>
+							<div>
+								<input type="password" placeholder="Retype Password" class="form-control">
+							</div>	
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-lg-12 controls">
+						
+							<div class="col-lg-4"></div>
+							<div class="col-lg-4" style="padding-left: 25px;padding-right: 25px;">
+							<!--	<button type="submit" id="lk" class="btn btn-primary" style="margin-bottom:100px;width:100%;background:skyblue;">
+								
+								<span class="glyphicon glyphicon-save" aria-hidden="true"></span>&nbsp;&nbsp;Save Changes
+							</button>-->
+							
+
+							<%= button_tag(type: 'submit', class: "btn btn-primary", id: 'my_button') do %>
+ 								<span class="glyphicon glyphicon-save"></span>&nbsp;&nbsp;Save Changes
+							<% end %>
+							
+							</div>
+							
+							
+						</div>
+				
+				</div>
+				</div>
+		<% end %>		
+			</div>
+			
+	
+
+
+</div>	
