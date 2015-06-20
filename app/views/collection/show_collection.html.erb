@@ -17,12 +17,12 @@
 			<% end %>
 			<!--main content starts here-->
 			<% len = @hadithCategories.count %>
-			<div class="col-lg-9 move-down pull-right">
+			<div class="col-lg-9 move-down pull-right" style="top:155px">
 				<% if @HadithId.count > 0%>
 				<% @solutions.each { |item1| %>
-				
 				<% if @HadithId.include?(item1['HId'].to_s) %>
 					<div class="row col-lg-12 hadith pull-right">
+						
 						<div class="category-wrapper pull-right">
 							<div class="category pull-right">
 								<div class="col-lg-12 pull-right ">
@@ -31,7 +31,6 @@
 							</div>
 						</div>
 						<div class="row col-lg-12 narrators">
-						<%= item1['HId']%>
 							<% arr = item1['Narrator'].to_s 
 							   arr = arr.split("-->>") 
 							   arr.size().times { |i| if i != arr.size()-1
@@ -88,7 +87,7 @@
 				<% else %>
 					<div class ="controls no-padding" style=" margin-left: 185px; margin-top: 103px;">
 						<h4 style="color: #666"><span class="glyphicon glyphicon-trash"	style="font-size: 171px;"></span>
-						<p style="padding-top: 10px;">Your Collection is Empty</p>
+						<p style="padding-top: 10px;font-size: 17px;">Your Collection is Empty</p>
 						</h4>
 					</div>
 				<% end %>
@@ -108,7 +107,7 @@
 				var id = $(e.target).attr("value");
 				if(btnText.trim() == "Add to my collection")
 				{
-					$(e.target).html("<span class='glyphicon glyphicon-heart' aria-hidden='true'></span>&nbsp&nbspRemove from collection");
+					$(e.target).html("<span class='glyphicon glyphicon-remove' aria-hidden='true'></span>&nbsp&nbspRemove from collection");
 					
 					$(e.target).addClass("active-button");
 					$().toastmessage('showSuccessToast', "Hadith added to my collection.");

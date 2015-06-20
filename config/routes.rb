@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'createconversation' => 'conversations#create_conversation'
   get 'adminView' => 'home#adminView'
   get 'deleteScholar' => 'users#destroy'
+  get 'simplesearch' => 'home#category'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

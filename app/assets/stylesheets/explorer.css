@@ -18,7 +18,13 @@ body{
 	/*background: linear-gradient(to bottom, #333 0%,#393939 100%);*/
 
 }
-
+.narrators1{
+	
+	background: rgba(238, 238, 238, 0.56);
+	padding: 8px 26px;
+	border: 1px solid rgba(128, 128, 128, 0.21);  
+	border-left: 5px solid rgba(0, 0, 0, 1);
+}
 
 .gray{
 	color:gray;

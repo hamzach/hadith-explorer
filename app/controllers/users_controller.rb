@@ -55,6 +55,7 @@ class UsersController < ApplicationController
           UserMailer.welcome_email(@user).deliver
           format.html { redirect_to adminView_url }
         else
+          UserMailer.welcome_normal_email(@user).deliver
           format.html { redirect_to signuplogin_url(:id => @user.id) }
         end
         format.json { render action: 'show', status: :created, location: @user }

@@ -47,13 +47,13 @@
 					<% if current_user %>	
 						<ul class="nav navbar-nav navbar-right">
 							<li class="">
-								<!--<a href="#" class="first-header-nav">Salman</a>-->
 								<%= link_to current_user.firstname, class: "first-header-nav" %>
 							</li>
-							<li class="">
-								<!--<a id="myCollection" href="#" class="first-header-nav">My collection</a>-->
-								<%= link_to 'My Collection', 'favouritecollection', id: "myCollection", class: "first-header-nav"  %>
-							</li>
+							<% if session[:user_type] != "admin" %>
+								<li class="">
+									<%= link_to 'My Collection', 'favouritecollection', id: "myCollection", class: "first-header-nav"  %>
+								</li>
+							<% end %>
 							<li class="dropdown">
 
 					            <a href="#" class=" dropdown-toggle" data-toggle="dropdown">
@@ -62,8 +62,6 @@
 					               <b class="caret"></b>
 					            </a>
 					            <ul class="dropdown-menu">
-					               <!--<li><a href="users/edit_profile">Profile</a></li>-->
-
 					               <% if session[:user_type] == "scholar" %>
 					               		<li><%= link_to "Messages", conversation_path %></li>
 					               <% end %>
@@ -75,11 +73,10 @@
 					<% else %>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="">
-								<!--<a href="#" class="first-header-nav">Log In</a>-->
+								
 								<%= link_to "Log In", login_path, class: "first-header-nav" %>
 							</li>
 							<li class="">
-								<!--<a id="myCollection" href="#" class="first-header-nav">Sign Up</a>-->
 								<%= link_to "Sign Up", signup_path, id: "myCollection" %>
 							</li>
 							
@@ -104,10 +101,16 @@
 
 					<div class="collapse navbar-collapse" id="example-nav-collapse1">
 						<ul class="nav navbar-nav navbar-right">
-							<li class=""><a href="home" class="active second-header-nav"><span class="glyphicon glyphicon-home navbar-icons"></span>Home</a></li>
-                            <li class=""><a href="categorized" class="second-header-nav">Categorized Ahadith</a></li>
-							<li class=""><a href="unCategorized" class="second-header-nav">Un-Categorized Ahadith</a></li>
-							<li><a href="#" class="second-header-nav" style="margin-right:0px;padding-right: 11px !important;">Contact us</a></li>
+							<% if session[:user_type] != "admin" %>
+								<li class="menu-item"><a href="home" class="active second-header-nav"><span class="glyphicon glyphicon-home navbar-icons"></span>Home</a></li>
+							<% else %>
+								<li class="menu-item" style="  margin-right:-65px;"><a href="home" class="active second-header-nav"><span class="glyphicon glyphicon-home navbar-icons"></span>Home</a></li>
+							<% end %>
+							<% if session[:user_type] != "admin" %>
+	                            <li class="menu-item"><a href="categorized" class="second-header-nav">Categorized Ahadith</a></li>
+								<li class="menu-item"><a href="unCategorized" class="second-header-nav">Un-Categorized Ahadith</a></li>
+								<li><a href="#" class="menu-item second-header-nav" style="margin-right:0px;padding-right: 11px !important;">Contact us</a></li>
+							<% end %>
 						</ul>
 					</div>
 				</div>

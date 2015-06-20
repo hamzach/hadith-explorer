@@ -1,24 +1,25 @@
 <div class="container">
-	<div class="col-lg-12 move-down " id="scrollable">
-		<div class="row col-lg-12">
-			<!--<button class="btn btn-primary pull-right" style="margin-bottom:10px;width: 118px;  right: 18px;
-  position: relative;">Add Scholar</button>-->
-  		<%= link_to "Add Scholar", signup_path, {:style=>'margin-bottom:10px;width: 118px;  right: 18px;
-  position: relative;', :class => "btn btn-primary pull-right"} %>
+	<div class="col-lg-12" id="scrollable" style="top:150px;" >
+		<div class="row col-lg-12" style="margin-left: -4px">
+			<%= link_to "Add Scholar", signup_path, {:style=>'margin-bottom:10px;width: 150px;  right: 10px;
+  			position: relative;', :class => "btn btn-primary"} %>
 		</div>
-		
+		<div class="col-lg-12 narrators" style="margin-bottom: 2px">
+			<div class="col-lg-8 scholar-name">
+				<div class="col-lg-3">First Name</div>
+				<div class="col-lg-3">Last Name</div>
+				<div class="col-lg-3">Email</div>	
+			</div>	
+		</div>
 		<% @scholars.each do |scholar| %>
-			<div class="row col-lg-12 scholar">
+			<div class="col-lg-12 scholar narrators1" style="  padding-left: 23px;">
 				<div class="col-lg-8 scholar-name">
 					<div class="col-lg-3"><%= scholar.firstname %></div>
 					<div class="col-lg-3"><%= scholar.lastname %></div>
 					<div class="col-lg-3"><%= scholar.email %></div>	
 				</div>
 				<div class="col-lg-4 scholar-controls">
-					
-					<div class="col-lg-8 pull-right">
-						<!--<button class="btn btn-primary pull-right">Delete Scholar</button>-->
-						
+					<div class="col-lg-4 pull-right">
 						<%= link_to "Delete Scholar", deleteScholar_path(:id => "#{scholar.id}"), class: "btn btn-primary pull-right" %>
 					</div>
 				</div>

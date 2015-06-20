@@ -115,65 +115,76 @@ class HomeController < ApplicationController
 		end
 
 		html = ""
-		hadiths.each { |hadith|
-		html += '<div class="row col-lg-12 hadith pull-right">
-					<div class="category-wrapper pull-right">
-						<div class="category pull-right">
-							<div class="col-lg-12 pull-right ">
-								<a href="#" class="pull-right some">'+hadith['topic']+'</a>
+		if hadiths.any?
+			hadiths.each { |hadith|
+			html += '<div class="row col-lg-12 hadith pull-right">
+						<div class="row col-lg-5 narrators" title="Hadith Reference(Book, Chapter, Hadith Number)" style="margin-top: 0px;">
+							<b>Reference:</b>'+hadith['book']+', '+ hadith['topic']+', '+ hadith['id']+'
+						</div>
+						<div class="col-lg-6 category-wrapper pull-right">
+							<div class="category pull-right">
+								<div class="col-lg-12 pull-right" style="margin-right: -14px;" title="Topic Name">
+									<a href="#" class="pull-right some">'+hadith['topic']+'</a>
+								</div>
 							</div>
 						</div>
-					</div>
-		 			<div class="row col-lg-12 narrators">'
-						hadith['narrators'].each { |index|
-						html += '<span><a href="" style="color:black;">'+index+'</a>&nbsp'
-						# if(index != hadith['narrators'].size)
-						# {
-							html += '<span class="glyphicon glyphicon-link" aria-hidden="true"></span>';
-						# }
-							html += '</span>';
-						}
+			 			<div class="row col-lg-12 narrators"  title="Hadith Narrators">'
+							hadith['narrators'].each { |index|
+							html += '<span><a href="" style="color:black;">'+index+'</a>&nbsp'
+							# if(index != hadith['narrators'].size)
+							# {
+								html += '<span class="glyphicon glyphicon-link" aria-hidden="true"></span>';
+							# }
+								html += '</span>';
+							}
 
-					html += '</div>'
-					html +=	'<div class="row col-lg-12 narrators">
-								 <div id='+hadith['id']+'_categories_container>'
-									if hadith['categories'].any?
-										hadith['categories'].each{ |index|
-											html += '<p class="row col-lg-2" style="display:inline-flex;">'+index+'</p>'
-										}
+						html += '</div>'
+						html +=	'<div class="row col-lg-12 narrators"  title="Hadith Categories">
+									 <div id='+hadith['id']+'_categories_container>'
+										if hadith['categories'].any?
+											hadith['categories'].each{ |index|
+												html += '<p class="row col-lg-2" style="display:inline-flex;">'+index+'</p>'
+											}
+										else
+											html += 'The hadith is yet to be categorized.'
+										end
+								html += '</div>
+						</div>
+						<div class="row col-lg-12 no-padding"></div>
+						<div class="row col-lg-12 matan no-padding"  title="Hadith Matan">
+							<p href="">'+hadith['matan']+'</p>
+						</div>'
+					if current_user
+						html += '<div class="row col-lg-12 controls no-padding">
+									<div class="col-lg-3 controls no-padding">'
+									if @HadithId.include?(hadith['id'])
+										html += '<button type="submit" id="lk" class="btn btn-primary add-collection active-button" style="width:95%;" value= "'+hadith["id"]+'">
+													<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp&nbspRemove from collection
+												</button>'
 									else
-										html += 'The hadith is yet to be categorized.'
+										html += '<button type="submit" id="lk" class="btn btn-primary add-collection" style="width:95%;" value= "'+hadith["id"]+'" >
+													<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp&nbspAdd to my collection
+												</button>'
 									end
-							html += '</div>
-					</div>
-					<div class="row col-lg-12 no-padding"></div>
-					<div class="row col-lg-12 matan no-padding">
-						<p href="">'+hadith['matan']+'</p>
-					</div>'
-				if current_user
-					html += '<div class="row col-lg-12 controls no-padding">
-								<div class="col-lg-3 controls no-padding">'
-								if @HadithId.include?(hadith['id'])
-									html += '<button type="submit" id="lk" class="btn btn-primary add-collection active-button" style="width:95%;" value= "'+hadith["id"]+'">
-												<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp&nbspRemove from collection
-											</button>'
-								else
-									html += '<button type="submit" id="lk" class="btn btn-primary add-collection" style="width:95%;" value= "'+hadith["id"]+'" >
-												<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp&nbspAdd to my collection
-											</button>'
-								end
-								html += '</div>'
-								if session[:user_type] == "scholar"
-									html += '<div class="col-lg-2 controls no-padding">
-												<button type="button" id="lk" class="btn btn-primary editCategory" style="width:106%;" value= "'+hadith["id"]+'">
-													<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp&nbspEdit Category
-												</button>
-											</div>'
-								end
+									html += '</div>'
+									if session[:user_type] == "scholar"
+										html += '<div class="col-lg-2 controls no-padding">
+													<button type="button" id="lk" class="btn btn-primary editCategory" style="width:106%;" value= "'+hadith["id"]+'">
+														<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>&nbsp&nbspEdit Category
+													</button>
+												</div>'
+									end
+						html += '</div>'
+					end
 					html += '</div>'
-				end
-				html += '</div>'
-		}
+			}
+		else
+			html = "<div class =\"controls no-padding\" style=\"margin-left: 263px;margin-top: 180px;\">
+							<h4 style=\"color: #666\"><span class=\"glyphicon glyphicon-trash\"	style=\"font-size: 171px;\"></span>
+							<p style=\"margin-left: 25px;padding-top: 10px;\">No Hadith Found</p>
+							</h4>
+						</div>";
+		end
 
 		render text: html.to_json
 	end

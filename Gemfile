@@ -5,8 +5,10 @@ source 'http://rubygems.org'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
+ruby '2.1.5'
 
-gem 'mysql'
+# gem 'mysql'
+gem 'pg'
 gem 'rdf', '~> 1.1.10'
 gem 'linkeddata', '~> 1.1.2'
 gem 'sparql', '~> 1.1.4'
@@ -51,18 +53,18 @@ gem 'composite_primary_keys', '7.0.0'
 # for heroku deployment
 
 
-gem 'turbolinks'
+#gem 'turbolinks'
 
-gem 'amistad'
+#gem 'amistad'
 
-gem 'carrierwave'
-gem "devise",'1.4.9'
-gem "cancan"
-gem "jquery-rails"
-gem "client_side_validations"
-gem 'rspec-rails'
-gem 'rspec'
-gem 'heroku'
-gem 'activeadmin'
-gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-bootstrap-rails.git'
+#gem 'carrierwave'
+#gem "devise",'1.4.9'
+#gem "cancan"
+#gem "jquery-rails"
+#gem "client_side_validations"
+#gem 'rspec-rails'
+#gem 'rspec'
+#gem 'heroku'
+#gem 'activeadmin'
+#gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'rails_12factor', group: :production

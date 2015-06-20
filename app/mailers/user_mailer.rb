@@ -6,4 +6,9 @@ class UserMailer < ActionMailer::Base
     @url  = 'http://localhost:3000/login'
     mail(to: @user.email, subject: 'Welcome to Hadith Explorer Site')
   end
+  def welcome_normal_email(user)
+    @user = user
+    @url  = 'http://localhost:3000/login'
+    mail(to: @user.email, subject: 'Welcome to Hadith Explorer Site')
+  end
 end
