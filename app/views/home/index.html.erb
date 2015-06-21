@@ -244,8 +244,7 @@
 	            	<% @hadiths_chapters.each_with_index { |chapter, index| %>
 		                <% if index != 0 %>
 			                <li class="sidebar-brand sidebar-list-item">
-								
-								<%= link_to chapter['ChapterName'], simplesearch_path(:topicName => chapter['ChapterName']) %>
+								<a href="/home/category/<%= chapter['ChapterName'].to_s %>"><%= chapter['ChapterName']%></a>
 			                </li>
 			            <% end %>
 	            	<% } %>
@@ -337,14 +336,14 @@
 					$(e.target).html("<span class='glyphicon glyphicon-remove' aria-hidden='true'></span>&nbsp&nbspRemove from collection");
 					
 					$(e.target).addClass("active-button");
-					$().toastmessage('showSuccessToast', "Hadith added to my collection.");
+					$().toastmessage('showSuccessToast', "Hadith added to collection.");
 				}
 				else
 				{
 					$(e.target).html("<span class='glyphicon glyphicon-heart' aria-hidden='true'></span>&nbsp&nbspAdd to my collection");
 					
 					$(e.target).removeClass("active-button");
-					$().toastmessage('showSuccessToast', "Hadith remove from my collection.");
+					$().toastmessage('showSuccessToast', "Hadith remove from collection.");
 				}
 
 				$.ajax(
@@ -354,11 +353,11 @@
 			        data:{hadith_id:id, button_text:btnText},
 			        success:function(response)
 			        {
-			            //alert(response);
+			            // alert(response);
 			        },
 			        error: function()
 			        {
-			        	alert('Load was performed.');
+			        	// alert('Load was performed.');
 			    	}
 	     		});
 
@@ -387,7 +386,7 @@
 			        data:{hadith_id:id, categories:selected},
 			        success:function(response)
 			        {
-			        	
+			        	alert(response);
 			        	if(selected.length > 0)
 			        	{
 			        		html = "";

@@ -4,13 +4,15 @@
 			<%= link_to "Add Scholar", signup_path, {:style=>'margin-bottom:10px;width: 150px;  right: 10px;
   			position: relative;', :class => "btn btn-primary"} %>
 		</div>
-		<div class="col-lg-12 narrators" style="margin-bottom: 2px">
-			<div class="col-lg-8 scholar-name">
-				<div class="col-lg-3">First Name</div>
-				<div class="col-lg-3">Last Name</div>
-				<div class="col-lg-3">Email</div>	
-			</div>	
-		</div>
+		<% if @scholars.any? %>
+			<div class="col-lg-12 narrators" style="margin-bottom: 2px">
+				<div class="col-lg-8 scholar-name">
+					<div class="col-lg-3">First Name</div>
+					<div class="col-lg-3">Last Name</div>
+					<div class="col-lg-3">Email</div>	
+				</div>	
+			</div>
+		<% end %>
 		<% @scholars.each do |scholar| %>
 			<div class="col-lg-12 scholar narrators1" style="  padding-left: 23px;">
 				<div class="col-lg-8 scholar-name">
