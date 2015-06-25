@@ -1,78 +1,65 @@
-
-<div class="container">
-	
-<div class="row move-down" style="
-    color:#333;position:relative; top:150px">
-		<div class="col-lg-12" style="border-bottom: 1px solid rgb(184, 184, 184);">			
-			<div class="row col-lg-12 heading" style="">
+<div class="container">	
+	<div class="row move-down" style="color:#333;position:relative; top:150px">
+		<div class="col-lg-12" style="border-bottom: 1px solid rgb(184, 184, 184);">	
+			<div class="row col-lg-12 heading">
+				<div class="col-lg-4"></div>
 				<span>
 					<h3 style="color: #5B5B5B;font: 19px/1.4 &quot;Lucida Grande&quot;,&quot;Lucida Sans Unicode&quot;,&quot;Lucida Sans&quot;,Garuda,Verdana,Tahoma,sans-serif;">Sign In</h3>
 				</span>
 			</div>
-			
 		</div>
 		<div class="row col-lg-12 container" style="margin-top:20px;">
-		<%= form_for(:session, url: login_path) do |f| %>
-			
-			
-					<div class="row col-lg-12 fields">
+			<% if !@errors.nil? %>
+				<div class="row col-lg-12 container">
 					<div class="col-lg-4"></div>
-					<div class="col-lg-4">
-						
+					<div class="col-lg-4 ">
 						<div class="col-lg-12">
-							<div class="">
-							 	<label>Email</label>
+							<div class="col-lg-12 alert alert-danger fade in"  style="padding: 8px;">
+			    				<a href="#" class="close" data-dismiss="alert">&times;</a>
+			        			<strong><%= @errors%></strong> 
+			        		</div>
+		        		</div>
+	        		</div>
+	        		<div class="col-lg-4"></div>
+	    		</div>
+			<% end %>
+			<%= form_for(:session, url: login_path) do |f| %>
+				<div class="row col-lg-12 fields">
+					<div class="col-lg-4"></div>
+					<div class="col-lg-4">						
+						<div class="col-lg-12">
+							<div>
+							 	<label>Email *</label>
 							</div>
 							<div>
-								<!--<input type="email" placeholder="Email" class="form-control">-->
 								<%= f.email_field :email, class: 'form-control', :placeholder => 'Email' %>
 							</div>	
 						</div>	
-						</div>
 					</div>
-
-					<!---->
-					<div class="row col-lg-12 fields">
+				</div>
+					
+				<div class="row col-lg-12 fields">
 					<div class="col-lg-4"></div>
-					<div class="col-lg-4">
-						
+					<div class="col-lg-4">	
 						<div class="col-lg-12">
 							<div class="">
-							 	<label>Password</label>
+							 	<label>Password *</label>
 							</div>
 							<div>
-								<!--<input type="password" placeholder="Password" class="form-control">-->
 								<%= f.password_field :password, class: 'form-control' , :placeholder => 'Password' %>
 							</div>	
 						</div>	
+					</div>
+				</div>
+				<div class="row col-lg-12 " style="margin-top:20px;">
+					<div class="col-lg-12 controls">
+						<div class="col-lg-4"></div>
+						<div class="col-lg-4" style="padding-left: 25px;padding-right: 25px;">
+							<%= f.submit "Log In", id: "my_button", class: "btn btn-primary" %>
 						</div>
 					</div>
-
-					<div class="row col-lg-12 " style="margin-top:20px;">
-
-				
-				<div class="col-lg-12 controls">
-						
-							<div class="col-lg-4"></div>
-							<div class="col-lg-4" style="padding-left: 25px;padding-right: 25px;">
-								<!--<button type="submit" id="lk" class="btn btn-primary" style="margin-bottom:100px;width:100%;background:skyblue;">
-								
-								Log In&nbsp;&nbsp;<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-							</button>-->
-							<%= f.submit "Log In", id: "my_button", class: "btn btn-primary" %>
-							
-							</div>
-							
-							
-						</div>
-				
 				</div>
-		<% end %>
+			<% end %>
 		</div>
-				
-			</div>
-			
-	
-
-
+	</div>
 </div>	

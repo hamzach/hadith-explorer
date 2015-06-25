@@ -4,31 +4,38 @@ Rails.application.routes.draw do
 
   #get 'home/index'
   root "home#index"
+  # match ':controller(/:action(/:topicName))', :via => :get
   get 'home' => 'home#index'
+  
   get 'categorized' => 'home#categorizedAhadith'
   get 'unCategorized' => 'home#unCategorizedAhadith'
-  match ':controller(/:action(/:topicName))', :via => :get
-  get '/home/category/:number' => 'home#category'
-  get 'advanceSearch' => 'home#advanceSearch'
+  
   get 'login'   => 'sessions#new'
   post'login'   => 'sessions#create'
   get 'signuplogin' => 'sessions#create1'
   get 'logout'  => 'sessions#destroy'
 
   get 'signup' => 'users#new'
+  
   get 'profile' => 'users#edit_profile'
-#  get 'messages' => 'users#messaging'
-  get 'conversation' => 'conversations#index'
+
   get 'addcollection' => 'collection#add_collection'
   get 'removecollection/:id' => 'collection#remove_collection'
-  get 'addcategory' => 'categorization#add_category'
   get 'favouritecollection' => 'collection#show_collection'
   get 'removeallcollection' => 'collection#remove_all_collection'
+
+  get 'conversation' => 'conversations#index'
   get 'sendmessage' => 'conversations#send_message'
   get 'createconversation' => 'conversations#create_conversation'
+  
+  get 'addcategory' => 'categorization#add_category'
+  
   get 'adminView' => 'home#adminView'
   get 'deleteScholar' => 'users#destroy'
+
   get 'simplesearch' => 'home#category'
+  get 'advanceSearch' => 'home#advanceSearch'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

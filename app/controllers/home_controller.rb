@@ -59,8 +59,8 @@ class HomeController < ApplicationController
 						 }
 						 GROUP BY ?HId ?Content ?Topic ?BookName
 						 "
-			hadith = SPARQL.execute(query_str, @@queryable)
-			@hadiths = getAhadiths hadith, hadithCategories
+			result = SPARQL.execute(query_str, @@queryable)
+			@hadiths = getAhadiths result, hadithCategories
 			else
 				redirect_to action: "index"
 			end
@@ -119,12 +119,12 @@ class HomeController < ApplicationController
 			hadiths.each { |hadith|
 			html += '<div class="row col-lg-12 hadith pull-right">
 						<div class="row col-lg-5 narrators" title="Hadith Reference(Book, Chapter, Hadith Number)" style="margin-top: 0px;">
-							<b>Reference:</b>'+hadith['book']+', '+ hadith['topic']+', '+ hadith['id']+'
+							<b>Reference:</b>'+hadith['book']+', '+ hadith['topic']+', '+ hadith['id'].scan(/\d+/).first+'
 						</div>
 						<div class="col-lg-6 category-wrapper pull-right">
 							<div class="category pull-right">
 								<div class="col-lg-12 pull-right" style="margin-right: -14px;" title="Topic Name">
-									<a href="#" class="pull-right some">'+hadith['topic']+'</a>
+									<a href="simplesearch?topicName='+hadith['topic']+'" class="pull-right some">'+hadith['topic']+'</a>
 								</div>
 							</div>
 						</div>
@@ -279,7 +279,7 @@ private
 			 	?Chapter:CName ?ChapterName .
 			 }"
 
-		result = SPARQL.execute(query_str, @@queryable)	
+		result = SPARQL.execute(query_str, @@queryable)
 		return result
 	end
 

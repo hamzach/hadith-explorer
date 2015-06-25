@@ -1,19 +1,19 @@
 class CollectionController < ApplicationController
 	
 	def show_collection
-		if session[:user_id] != nil
-			root = Rails.root.to_s
+		root = Rails.root.to_s
+		if !session[:user_id].nil?
 			@favHadith = Collection.select("hadith_id").where("user_id = ?", session[:user_id])
-			
+			@HadithId = []
+			for x in @favHadith
+				@HadithId << x.hadith_id
+			end
 			sql = "	select categories.cname, hadith_categories.hid
 				    from hadith_categories, categories
 				    where hadith_categories.cid = categories.cid"
 
 			@hadithCategories = ActiveRecord::Base.connection.execute(sql)
-			@HadithId = []
-			for x in @favHadith
-				@HadithId << x.hadith_id
-			end
+			
 			
 			queryable = RDF::Repository.load("#{root}/ontology/Narrators.nt")
 			query_str = "prefix : <http://protege.org/ontologies/Hadith.owl#>
@@ -72,7 +72,8 @@ class CollectionController < ApplicationController
 			hadithid = params[:id].to_s
 			userid = session[:user_id]
 			Collection.where("user_id = #{userid} AND hadith_id = '#{hadithid}'").delete_all
-			#render text: "deleted"
+			# render text: "show_collection"
+			redirect_to action: "show_collection"
 		else
 			render text: "Some thing goes worng, Please try again later"
 		end
@@ -83,6 +84,7 @@ class CollectionController < ApplicationController
 		else
 			render text: "Some thing goes worng, Please try again later"
 		end
-		#render text: "deleted"
+		redirect_to action: "show_collection"
+		# render text: "deleted"
 	end
 end

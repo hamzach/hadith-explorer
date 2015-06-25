@@ -1,0 +1,18 @@
+<div class="col-lg-4 sidebar-nav lll " id="scrollable" style="margin-top: 10px;">
+	<div>
+		<h4 style="color:#666;" class="categoriesSearch" style="margin-bottom:10px;border:0px;border-bottom: 1px solid rgba(128, 128, 128, 0.67);
+		border-radius: 0px;padding-left:7px;color:#999;outline:none;width: 86%;">Chapters</h4>
+	</div>
+    <div id="sidebar-wrapper" class="sidebar-nav">
+        <ul class="sidebar-nav">
+        	<li class="sidebar-brand sidebar-list-item">
+                <%= link_to "All".to_s, simplesearch_path(:topicName => "All".to_s) %>
+            </li>
+        	<% @hadiths_chapters.each_with_index { |chapter, index| %>
+                <li class="sidebar-brand sidebar-list-item">
+					<%= link_to chapter['ChapterName'], simplesearch_path(:topicName => chapter['ChapterName']) %>
+                </li>
+        	<% } %>
+        </ul>
+	</div>
+</div>

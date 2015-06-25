@@ -1,8 +1,12 @@
-<%= render "layouts/header" %>
 <div class="container">
 	<div class="row move-down" style="color:#333;position:relative; ">
 		<div class="col-lg-12" style="border-bottom: 1px solid rgb(184, 184, 184);">
 			<div class="row col-lg-12 heading" style="">
+				<!-- <span>
+					<% if @errors.any? %>
+					    <%= @errors %>
+					<% end %>
+				</span> -->
 				<span>
 					<h3 style="color: #5B5B5B;font: 19px/1.4 &quot;Lucida Grande&quot;,&quot;Lucida Sans Unicode&quot;,&quot;Lucida Sans&quot;,Garuda,Verdana,Tahoma,sans-serif;">Sign In</h3>
 				</span>
@@ -14,12 +18,11 @@
 				<div class="col-lg-4">
 					<div class="col-lg-12">
 						<div class="">
-						 	<label>Email</label>
+						 	<label>Email*</label>
 						</div>
 						<div>
 							<input type="email" placeholder="Email" class="form-control">
 						</div>	
-						<span class="error">hi</span>
 					</div>	
 				</div>
 			</div>
@@ -30,7 +33,7 @@
 				<div class="col-lg-4">	
 					<div class="col-lg-12">
 						<div class="">
-						 	<label>Password</label>
+						 	<label>Password*</label>
 						</div>
 						<div>
 							<input type="password" placeholder="Password" class="form-control">

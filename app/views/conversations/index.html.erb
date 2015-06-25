@@ -37,12 +37,18 @@
 	
 	
 	<script type="text/javascript">
+		
 		$(document).ready(
 	         function() {
-	          setInterval(function() {
-	            $('._message').load('/conversations/refresh');
-	        }, 300000);
+	        //   setInterval(function() {
+	        //     $('._message').load('/conversations/refresh');
+	        // }, 1000);
+	        setInterval(function(){cache_clear()},3000);
 	    });
+	    function cache_clear()
+		{
+		 	window.location.reload(true);
+		}
 		$("#send-message").click(function(e)
 		{
 			var message_text = document.getElementById("message_text_area").value;
